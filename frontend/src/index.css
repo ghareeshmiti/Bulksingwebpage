@@ -67,11 +67,12 @@
 }
 
 @keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
 .animate-marquee {
-  animation: marquee-scroll 45s linear infinite;
+  animation: marquee-scroll 60s linear infinite;
+  will-change: transform;
 }
 .animate-marquee:hover {
   animation-play-state: paused;
@@ -240,6 +241,7 @@ input[type='range']::-moz-range-thumb {
 .theme-light .decoration-emerald-500\/40 { text-decoration-color: rgba(245, 158, 11, 0.5); }
 
 .theme-light .chapter-num { -webkit-text-stroke: 1px rgba(217, 119, 6, 0.35); }
+.theme-light .from-\[\#0D0D0F\] { --tw-gradient-from-color: #F6F1E7; }
 .theme-light .glow-emerald {
   background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.18) 0%, transparent 65%);
 }
