@@ -62,7 +62,10 @@ Design a complete HTML marketing webpage for SignuluOne BulkSigner — a Windows
 
 ## Iteration 9 (11 Aug 2026) — Animated Features section
 - Added count-up stats band above the bento grid (100% local processing, 0 uploads, 2 cert types, 4 steps) with scroll-triggered counters
-- Each of the 6 feature cards now has a looping micro-animation: SVG signature self-drawing (Single PDF), files stacking (Bulk), radar pulse rings (Local Processing), stamp hopping between corners (Placement), certificate scan line (Certificate Visibility), status pill cycling Ready→Signing→Signed (Clear Status)
+- Each of the 6 feature cards now has a looping micro-animation: SVG signature self-drawing (Single PDF), files stacking (Bulk), radar pulse rings (Local Processing), stamp hopping between corners (Placement), certificate scan line (Certificate Visibility), status pill cycling Ready→Signing→Signed (Clear Status); stats band later removed per user request
+
+## Iteration 10 (11 Aug 2026) — Sitemap and robots
+- Added /public/robots.txt (allow all + sitemap reference) and /public/sitemap.xml (root URL entry; sections are hash-based so they index as one page) — both verified live over HTTP
 
 ## Backlog
 - P0: none blocking
