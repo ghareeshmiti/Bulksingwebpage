@@ -139,7 +139,7 @@ export default function Pricing() {
                 step={1}
                 value={licences}
                 onChange={(e) => setLicences(Math.max(1, Math.floor(Number(e.target.value) || 1)))}
-                className="w-40 rounded-lg border border-white/15 bg-[#121214] px-4 py-3 font-mono2 text-lg text-white outline-none transition-[border-color] duration-300 focus:border-emerald-500"
+                className="w-40 rounded-lg border border-white/15 bg-[#121214] px-4 py-3 font-heading text-lg font-bold text-white outline-none transition-[border-color] duration-300 focus:border-emerald-500"
               />
               <p className="mt-2 text-[11px] text-zinc-600">Whole numbers only. Minimum one licence.</p>
               <input
@@ -169,7 +169,7 @@ export default function Pricing() {
                     <span className="text-zinc-400">{k}</span>
                     <span
                       data-testid={`estimator-value-${idx}`}
-                      className={`font-mono2 ${idx === 2 ? "text-lg font-bold text-emerald-300" : "text-zinc-100"}`}
+                      className={`font-heading ${idx === 2 ? "text-lg font-extrabold text-emerald-300" : "font-bold text-white"}`}
                     >
                       {v}
                     </span>

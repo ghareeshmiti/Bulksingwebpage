@@ -203,6 +203,7 @@ input[type='range']::-moz-range-thumb {
 .theme-light .text-white { color: #1C1917; }
 .theme-light .text-white\/25 { color: rgba(28, 25, 23, 0.22); }
 .theme-light .text-white\/\[0\.07\] { color: rgba(28, 25, 23, 0.08); }
+.theme-light .text-zinc-100 { color: #292524; }
 .theme-light .text-zinc-200 { color: #292524; }
 .theme-light .text-zinc-300 { color: #44403C; }
 .theme-light .text-zinc-400 { color: #6B655E; }
@@ -368,6 +369,7 @@ input[type='range']::-moz-range-thumb {
 .theme-blue .text-\[\#09090B\] { color: #FFFFFF; }
 .theme-blue .text-white\/25 { color: rgba(15, 27, 61, 0.22); }
 .theme-blue .text-white\/\[0\.07\] { color: rgba(15, 27, 61, 0.08); }
+.theme-blue .text-zinc-100 { color: #1E2A4A; }
 .theme-blue .text-zinc-200 { color: #1E2A4A; }
 .theme-blue .text-zinc-300 { color: #3A4560; }
 .theme-blue .text-zinc-400 { color: #5A6478; }

@@ -77,6 +77,11 @@ Design a complete HTML marketing webpage for SignuluOne BulkSigner — a Windows
 ## Iteration 13 (11 Aug 2026) — Fourth theme: Corporate Blue
 - Added corporate SignuluOne blue theme (white background, royal blue #2563EB accents, deep navy headings — modeled on signuluone.com reference); theme cycle is now Dark Emerald → Light Amber → Dark Amber → Corporate Blue with per-theme icons (Moon/Sun/Sparkles/Palette); button text forced white on blue for contrast
 
+## Iteration 14 (11 Aug 2026) — Theme cleanup + visibility + realistic creatives
+- Removed Dark Emerald from the theme cycle; Corporate Blue is now the default theme (stored "dark" preferences migrate to blue); cycle: Blue → Light Amber → Dark Amber
+- Fixed invisible numbers on light themes: estimator values used unmapped text-zinc-100 (white-on-white) — now mapped and switched to font-heading for font consistency (Cabinet Grotesk for values, mono kept only for tiny uppercase labels)
+- Rebuilt OverviewFlow creatives as realistic miniature app windows: file explorer with checkbox rows, detailed mToken dongle with USB port + auto-detected chip, PDF page with seal-style DSC stamp, downloads window with Download-all button
+
 ## Backlog
 - P0: none blocking
 - P1: Wire demo form to backend (DB + email notification), real installer download link

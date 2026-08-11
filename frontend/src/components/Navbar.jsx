@@ -1,18 +1,10 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, Sun, Moon, Sparkles, Palette } from "lucide-react";
+import { Menu, X, Sun, Sparkles, Palette } from "lucide-react";
 import { NAV_LINKS, SECTIONS } from "@/sections";
 
 export const ThemeIcon = ({ theme, size = 16 }) =>
-  theme === "dark" ? (
-    <Moon size={size} />
-  ) : theme === "light" ? (
-    <Sun size={size} />
-  ) : theme === "dark-amber" ? (
-    <Sparkles size={size} />
-  ) : (
-    <Palette size={size} />
-  );
+  theme === "light" ? <Sun size={size} /> : theme === "dark-amber" ? <Sparkles size={size} /> : <Palette size={size} />;
 
 export const Logo = ({ onNavigate }) => (
   <button
@@ -88,13 +80,7 @@ export default function Navbar({ active, onNavigate, theme, onToggleTheme }) {
             onClick={onToggleTheme}
             aria-label="Switch theme"
             title={
-              theme === "dark"
-                ? "Dark Emerald"
-                : theme === "light"
-                  ? "Light Amber"
-                  : theme === "dark-amber"
-                    ? "Dark Amber"
-                    : "Corporate Blue"
+              theme === "light" ? "Light Amber" : theme === "dark-amber" ? "Dark Amber" : "Corporate Blue"
             }
             className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-zinc-300 transition-[border-color,color] duration-300 hover:border-emerald-500/50 hover:text-emerald-400"
           >

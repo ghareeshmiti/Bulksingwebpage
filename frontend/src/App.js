@@ -15,12 +15,13 @@ const sectionFromHash = () => {
 
 export default function App() {
   const [active, setActive] = useState(sectionFromHash);
-  const [theme, setTheme] = useState(() => localStorage.getItem("bs-theme") || "dark");
+  const [theme, setTheme] = useState(() => {
+    const stored = localStorage.getItem("bs-theme");
+    return stored === "light" || stored === "dark-amber" ? stored : "blue";
+  });
 
   const cycleTheme = () =>
-    setTheme((t) =>
-      t === "dark" ? "light" : t === "light" ? "dark-amber" : t === "dark-amber" ? "blue" : "dark",
-    );
+    setTheme((t) => (t === "blue" ? "light" : t === "light" ? "dark-amber" : "blue"));
 
   const goTo = useCallback((id) => {
     if (!SECTIONS.some((s) => s.id === id)) return;

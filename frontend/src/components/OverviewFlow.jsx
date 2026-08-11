@@ -2,11 +2,12 @@ import { motion } from "framer-motion";
 import {
   FileText,
   FolderOpen,
-  Usb,
+  ChevronRight,
+  ChevronDown,
+  Check,
   CheckCircle2,
   Download,
-  PenLine,
-  ChevronRight,
+  Usb,
 } from "lucide-react";
 import { Reveal } from "@/components/shared";
 
@@ -19,71 +20,111 @@ const STEPS = [
   { label: "Download signed docs", sub: "Individually or all together", scene: "download" },
 ];
 
+const MiniWindow = ({ title, children, className = "" }) => (
+  <div className={`overflow-hidden rounded-lg border border-white/15 bg-[#121214] shadow-2xl ${className}`}>
+    <div className="flex items-center gap-1 border-b border-white/10 bg-white/[0.03] px-2 py-1.5">
+      <span className="h-1.5 w-1.5 rounded-full bg-red-500/70" />
+      <span className="h-1.5 w-1.5 rounded-full bg-amber-500/70" />
+      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/70" />
+      <span className="font-mono2 ml-1.5 text-[7px] uppercase tracking-wider text-zinc-500">{title}</span>
+    </div>
+    <div className="p-2">{children}</div>
+  </div>
+);
+
+const FileRow = ({ name, checked = true, indent = false }) => (
+  <div className={`flex items-center gap-1.5 rounded px-1 py-1 ${indent ? "ml-3" : ""}`}>
+    <span className={`flex h-3 w-3 shrink-0 items-center justify-center rounded-sm border ${checked ? "border-emerald-500 bg-emerald-500/20" : "border-zinc-600"}`}>
+      {checked && <Check size={8} className="text-emerald-400" />}
+    </span>
+    <FileText size={9} className="shrink-0 text-red-400/80" />
+    <span className="truncate text-[8px] text-zinc-300">{name}</span>
+  </div>
+);
+
 const SelectScene = () => (
-  <div className="relative flex h-24 items-center justify-center">
-    <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
-      <FolderOpen size={24} />
-    </div>
-    <div className="animate-float-slow absolute right-4 top-1 flex items-center gap-1 rounded-md border border-white/15 bg-[#121214] px-2 py-1 shadow-lg">
-      <FileText size={10} className="text-red-400" />
-      <span className="font-mono2 text-[8px] text-zinc-300">Agreement.pdf</span>
-    </div>
-    <div className="animate-float-slow absolute bottom-1 left-4 flex items-center gap-1 rounded-md border border-white/15 bg-[#121214] px-2 py-1 shadow-lg [animation-delay:1.2s]">
-      <FileText size={10} className="text-red-400" />
-      <span className="font-mono2 text-[8px] text-zinc-300">+12 files</span>
-    </div>
+  <div className="flex h-28 items-center justify-center">
+    <MiniWindow title="Select documents" className="w-[185px]">
+      <div className="flex items-center gap-1.5 rounded bg-emerald-500/[0.08] px-1 py-1">
+        <ChevronDown size={9} className="text-emerald-400" />
+        <FolderOpen size={10} className="text-amber-400" />
+        <span className="text-[8px] font-medium text-zinc-200">Certificates (12 PDFs)</span>
+      </div>
+      <FileRow name="Agreement-2026.pdf" indent />
+      <FileRow name="Board-Resolution.pdf" indent />
+      <div className="mt-1 flex items-center gap-1.5 rounded px-1 py-1">
+        <ChevronRight size={9} className="text-zinc-600" />
+        <FileText size={10} className="text-red-400/80" />
+        <span className="text-[8px] text-zinc-400">Invoice-4471.pdf</span>
+      </div>
+    </MiniWindow>
   </div>
 );
 
 const DongleScene = () => (
-  <div className="relative flex h-24 items-center justify-center gap-1">
-    <div className="flex h-4 w-5 flex-col justify-center gap-0.5 rounded-l-sm bg-zinc-400 pl-1">
-      <span className="h-0.5 w-2.5 rounded bg-zinc-500" />
-      <span className="h-0.5 w-2.5 rounded bg-zinc-500" />
+  <div className="relative flex h-28 items-center justify-center">
+    <div className="flex items-center">
+      <div className="flex h-[18px] w-6 flex-col justify-center gap-[3px] rounded-l-sm bg-gradient-to-b from-zinc-300 to-zinc-500 pl-1.5">
+        <span className="h-[2px] w-3 rounded bg-amber-400/80" />
+        <span className="h-[2px] w-3 rounded bg-amber-400/80" />
+      </div>
+      <div className="flex h-11 w-[74px] flex-col justify-between rounded-r-md border border-zinc-700 bg-gradient-to-b from-[#26262b] to-[#141417] p-1.5 shadow-lg">
+        <span className="font-mono2 text-[7px] tracking-wide text-zinc-300">mToken CryptoID</span>
+        <span className="flex items-center justify-between">
+          <span className="text-[6px] text-zinc-500">Class 3 DSC</span>
+          <span className="animate-status-pulse h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(16,185,129,0.9)]" />
+        </span>
+      </div>
+      <div className="ml-1.5 flex h-14 w-10 flex-col items-center justify-center gap-1 rounded-md border border-white/15 bg-[#17171b] shadow-inner">
+        <span className="h-3.5 w-6 rounded-sm bg-emerald-500/25 ring-1 ring-emerald-500/50" />
+        <Usb size={10} className="text-zinc-500" />
+      </div>
     </div>
-    <div className="flex h-11 w-24 items-center justify-between rounded-r-lg border border-emerald-500/40 bg-emerald-500/10 px-2.5 shadow-[0_0_24px_rgba(16,185,129,0.25)]">
-      <span className="font-mono2 text-[9px] text-zinc-300">mToken</span>
-      <span className="animate-status-pulse h-1.5 w-1.5 rounded-full bg-emerald-400" />
-    </div>
-    <div className="ml-2 flex h-12 w-8 items-center justify-center rounded-md border border-white/15 bg-white/[0.03]">
-      <Usb size={14} className="text-zinc-500" />
-    </div>
+    <span className="absolute bottom-1 flex items-center gap-1 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[8px] text-emerald-400">
+      <CheckCircle2 size={8} /> Auto-detected
+    </span>
   </div>
 );
 
 const SignScene = () => (
-  <div className="relative flex h-24 items-center justify-center">
-    <div className="relative h-20 w-16 rounded-md bg-white p-2 shadow-xl">
+  <div className="flex h-28 items-center justify-center">
+    <div className="relative h-24 w-[84px] rounded-md bg-white p-2 shadow-2xl">
       <div className="mb-1 h-1 w-3/5 rounded bg-zinc-300" />
-      <div className="space-y-1">
-        {[100, 85, 100].map((w, i) => (
-          <div key={i} className="h-1 rounded bg-zinc-200" style={{ width: `${w}%` }} />
+      <div className="space-y-[3px]">
+        {[100, 88, 100, 94, 72].map((w, i) => (
+          <div key={i} className="h-[3px] rounded bg-zinc-200" style={{ width: `${w}%` }} />
         ))}
       </div>
-      <div className="absolute bottom-1.5 right-1.5 flex items-center gap-0.5 border border-dashed border-zinc-400 bg-white px-1 py-0.5">
-        <CheckCircle2 size={7} className="text-emerald-600" />
-        <span className="text-[5px] font-semibold text-zinc-700">Digitally signed</span>
+      <div className="absolute bottom-1.5 left-1.5 right-1.5 flex items-center gap-1.5 rounded-sm border border-zinc-300 bg-white px-1.5 py-1 shadow-sm">
+        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-emerald-600">
+          <Check size={9} className="text-emerald-600" />
+        </span>
+        <span>
+          <span className="block text-[5.5px] font-bold leading-tight text-zinc-800">Digitally signed by RAHUL MEHTA</span>
+          <span className="block text-[5px] leading-tight text-zinc-500">eMudhra Sub CA · Class 3 · PAdES</span>
+          <span className="block text-[5px] leading-tight text-zinc-500">2026-08-09 11:24 IST</span>
+        </span>
       </div>
-    </div>
-    <div className="animate-float-slow absolute -right-1 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-[#09090B] shadow-[0_0_20px_rgba(16,185,129,0.45)]">
-      <PenLine size={13} />
     </div>
   </div>
 );
 
 const DownloadScene = () => (
-  <div className="relative flex h-24 items-center justify-center">
-    <div className="flex h-14 w-16 flex-col items-center justify-center gap-1 rounded-xl border border-emerald-500/30 bg-emerald-500/10">
-      <Download size={20} className="text-emerald-400" />
-      <span className="font-mono2 text-[7px] uppercase tracking-widest text-emerald-400">Signed</span>
-    </div>
-    <div className="animate-float-slow absolute right-3 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-[#09090B] shadow-lg">
-      <CheckCircle2 size={13} />
-    </div>
-    <div className="animate-float-slow absolute bottom-0 left-3 flex items-center gap-1 rounded-md border border-white/15 bg-[#121214] px-2 py-1 shadow-lg [animation-delay:1.5s]">
-      <FileText size={9} className="text-emerald-400" />
-      <span className="font-mono2 text-[8px] text-zinc-300">3 signed</span>
-    </div>
+  <div className="flex h-28 items-center justify-center">
+    <MiniWindow title="Downloads · signed" className="w-[185px]">
+      {["Agreement-2026.pdf", "Certificate-118.pdf"].map((f) => (
+        <div key={f} className="flex items-center justify-between rounded px-1 py-1">
+          <span className="flex min-w-0 items-center gap-1.5">
+            <CheckCircle2 size={9} className="shrink-0 text-emerald-400" />
+            <span className="truncate text-[8px] text-zinc-300">{f}</span>
+          </span>
+          <Download size={9} className="shrink-0 text-emerald-400" />
+        </div>
+      ))}
+      <div className="mt-1.5 flex items-center justify-center gap-1 rounded-md bg-emerald-500 py-1.5 text-[8px] font-bold text-[#09090B]">
+        <Download size={9} /> Download all (12)
+      </div>
+    </MiniWindow>
   </div>
 );
 
@@ -95,7 +136,7 @@ export default function OverviewFlow() {
       <div className="glow-emerald pointer-events-none absolute left-1/2 top-0 h-[300px] w-[800px] -translate-x-1/2" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal>
-          <p className="font-mono2 mb-2 text-center text-[10px] uppercase tracking-[0.35em] text-emerald-400">
+          <p className="font-heading mb-2 text-center text-xs font-medium uppercase tracking-[0.35em] text-emerald-400">
             The whole journey at a glance
           </p>
           <h2 className="font-heading mb-12 text-center text-2xl font-bold tracking-tight sm:text-3xl">
@@ -116,7 +157,7 @@ export default function OverviewFlow() {
                       <span className="font-heading text-2xl font-extrabold text-white/[0.08] transition-colors duration-500 group-hover:text-emerald-500/30">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="font-mono2 text-[9px] uppercase tracking-[0.2em] text-emerald-500/70">
+                      <span className="font-heading text-[10px] font-medium uppercase tracking-[0.2em] text-emerald-500/70">
                         Step {i + 1}
                       </span>
                     </div>
