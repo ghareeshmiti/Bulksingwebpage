@@ -31,7 +31,10 @@ export const SECTIONS = [
 export const NAV_LINKS = [
   { id: "overview", label: "Overview" },
   { id: "features", label: "Features" },
+  { id: "product", label: "Product" },
   { id: "how-it-works", label: "How It Works" },
+  { id: "signature", label: "Signature" },
+  { id: "process", label: "Process" },
   { id: "security", label: "Security" },
   { id: "use-cases", label: "Use Cases" },
   { id: "testimonials", label: "Clients" },

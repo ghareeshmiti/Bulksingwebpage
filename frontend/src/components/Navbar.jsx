@@ -54,13 +54,13 @@ export default function Navbar({ active, onNavigate, theme, onToggleTheme }) {
     >
       <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6 lg:px-8">
         <Logo onNavigate={go} />
-        <div className="hidden items-center gap-6 xl:flex">
+        <div className="hidden items-center gap-4 xl:flex">
           {NAV_LINKS.map((l) => (
             <button
               key={l.id}
               data-testid={`nav-link-${l.id}`}
               onClick={() => go(l.id)}
-              className={`relative pb-1 text-sm transition-colors duration-300 ${
+              className={`relative pb-1 text-[13px] transition-colors duration-300 ${
                 active === l.id ? "text-emerald-400" : "text-zinc-400 hover:text-emerald-400"
               }`}
             >
