@@ -1,5 +1,6 @@
 import { FolderOpen, Usb, PenLine, FileCheck2 } from "lucide-react";
 import { Reveal, ChapterHeader } from "@/components/shared";
+import SigningFlow from "@/components/SigningFlow";
 
 const STEPS = [
   {
@@ -60,6 +61,7 @@ export default function HowItWorks() {
             </Reveal>
           ))}
         </div>
+        <SigningFlow />
       </div>
     </section>
   );

@@ -45,6 +45,9 @@ Design a complete HTML marketing webpage for SignuluOne BulkSigner — a Windows
 - Hero H1 changed to "Sign Multiple PDFs with Your USB DSC"
 - New Testimonials section (chapter 09, between Use Cases and Pricing; later chapters renumbered): "Word from Our Clients" with 3 dummy testimonial cards (AP High Court, HMWSB, Heritage Foods personas) and a 10-tile happy-clients logo strip of dummy AP/Telangana customers (AP High Court, HMWSB, Heritage Foods, APTRANSCO, TSRTC, Singareni Collieries, APEPDCL, TSSPDCL, APIIC, Kamineni Hospitals) with monogram badges; "Clients" added to navbar
 
+## Iteration 5 (11 Aug 2026) — Animated signing flow in How It Works
+- Added SigningFlow ("Watch One PDF Travel Through BulkSigner") below the step cards: auto-playing 4-phase pictorial animation (Inbox PDF drop → signature chip positions on page → mToken USB dongle slides in, LED pulses, "Signing…" progress bar, stamp lands → signed PDF moves to Output with check badge), cycling every ~3.2s with clickable phase pills and live captions; fully DOM-drawn (no real images/screens used) and theme-aware
+
 ## Backlog
 - P0: none blocking
 - P1: Wire demo form to backend (DB + email notification), real installer download link
