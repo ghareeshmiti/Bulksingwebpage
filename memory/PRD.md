@@ -48,6 +48,10 @@ Design a complete HTML marketing webpage for SignuluOne BulkSigner — a Windows
 ## Iteration 5 (11 Aug 2026) — Animated signing flow in How It Works
 - Added SigningFlow ("Watch One PDF Travel Through BulkSigner") below the step cards: auto-playing 4-phase pictorial animation (Inbox PDF drop → signature chip positions on page → mToken USB dongle slides in, LED pulses, "Signing…" progress bar, stamp lands → signed PDF moves to Output with check badge), cycling every ~3.2s with clickable phase pills and live captions; fully DOM-drawn (no real images/screens used) and theme-aware
 
+## Iteration 6 (11 Aug 2026) — Third theme + official logo
+- Added third theme "Dark Amber" (dark background with yellow/amber accents mirroring the light theme palette); navbar toggle now cycles Dark Emerald → Light Amber → Dark Amber with per-theme icons (Moon/Sun/Sparkles), persisted in localStorage
+- Replaced the "S" monogram with the official SignuluOne logo image (https://www.signuluone.com/img/Signing%20Solutions.png) in navbar and footer
+
 ## Backlog
 - P0: none blocking
 - P1: Wire demo form to backend (DB + email notification), real installer download link

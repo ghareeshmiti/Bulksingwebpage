@@ -17,6 +17,9 @@ export default function App() {
   const [active, setActive] = useState(sectionFromHash);
   const [theme, setTheme] = useState(() => localStorage.getItem("bs-theme") || "dark");
 
+  const cycleTheme = () =>
+    setTheme((t) => (t === "dark" ? "light" : t === "light" ? "dark-amber" : "dark"));
+
   const goTo = useCallback((id) => {
     if (!SECTIONS.some((s) => s.id === id)) return;
     window.history.pushState(null, "", `#${id}`);
@@ -48,14 +51,14 @@ export default function App() {
   return (
     <div
       className={`grain relative min-h-screen bg-[#09090B] text-white antialiased ${
-        theme === "light" ? "theme-light" : ""
+        theme === "light" ? "theme-light" : theme === "dark-amber" ? "theme-dark-amber" : ""
       }`}
     >
       <Navbar
         active={active}
         onNavigate={goTo}
         theme={theme}
-        onToggleTheme={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
+        onToggleTheme={cycleTheme}
       />
       <main className="pb-24 md:pb-0">
         <AnimatePresence mode="wait">

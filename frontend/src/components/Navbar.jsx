@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, Sparkles } from "lucide-react";
 import { NAV_LINKS, SECTIONS } from "@/sections";
+
+export const ThemeIcon = ({ theme, size = 16 }) =>
+  theme === "dark" ? <Moon size={size} /> : theme === "light" ? <Sun size={size} /> : <Sparkles size={size} />;
 
 export const Logo = ({ onNavigate }) => (
   <button
@@ -9,9 +12,11 @@ export const Logo = ({ onNavigate }) => (
     onClick={() => onNavigate("overview")}
     className="flex items-center gap-2.5"
   >
-    <span className="font-heading flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-500 text-lg font-extrabold text-[#09090B]">
-      S
-    </span>
+    <img
+      src="https://www.signuluone.com/img/Signing%20Solutions.png"
+      alt="SignuluOne logo"
+      className="h-9 w-9 rounded-lg object-contain"
+    />
     <span className="text-left leading-tight">
       <span className="font-heading block text-base font-bold tracking-tight">SignuluOne</span>
       <span className="font-mono2 block text-[10px] uppercase tracking-[0.25em] text-emerald-400">
@@ -73,10 +78,11 @@ export default function Navbar({ active, onNavigate, theme, onToggleTheme }) {
           <button
             data-testid="theme-toggle-btn"
             onClick={onToggleTheme}
-            aria-label="Toggle theme"
+            aria-label="Switch theme"
+            title={theme === "dark" ? "Dark Emerald" : theme === "light" ? "Light Amber" : "Dark Amber"}
             className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-zinc-300 transition-[border-color,color] duration-300 hover:border-emerald-500/50 hover:text-emerald-400"
           >
-            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            <ThemeIcon theme={theme} />
           </button>
           <button
             data-testid="nav-request-demo-btn"
@@ -94,10 +100,10 @@ export default function Navbar({ active, onNavigate, theme, onToggleTheme }) {
           <button
             data-testid="theme-toggle-mobile-btn"
             onClick={onToggleTheme}
-            aria-label="Toggle theme"
+            aria-label="Switch theme"
             className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-zinc-300"
           >
-            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            <ThemeIcon theme={theme} />
           </button>
           <button
             data-testid="nav-mobile-menu-btn"
