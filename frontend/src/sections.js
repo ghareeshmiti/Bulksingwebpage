@@ -37,4 +37,5 @@ export const NAV_LINKS = [
   { id: "testimonials", label: "Clients" },
   { id: "pricing", label: "Pricing" },
   { id: "download", label: "Download" },
+  { id: "faq", label: "FAQ" },
 ];
