@@ -57,6 +57,9 @@ Design a complete HTML marketing webpage for SignuluOne BulkSigner — a Windows
 - Added FAQ to desktop navbar; replaced all 7 FAQ answers with user's final copy (Win 10/11 64-bit, driver/middleware, Ready-state on expiry, batch layout, export to source/output folder, per-device licensing); refreshed Download installer panel (OS, Token Support, Documents, Processing)
 - Rebuilt SigningFlow as "From Folder to Signed PDF, Automatically": 4 phases — select single PDF or folder (drag one or many), connect dongle to PC USB port, app auto-detects mToken and signs batch with staggered statuses + progress, download signed docs (per-file rows + Download all button)
 
+## Iteration 8 (11 Aug 2026) — Overview pictorial flow strip
+- Added OverviewFlow ("Select · Connect · Sign · Download") on the Overview page between hero and marquee: 4 pictorial infographic cards (folder+PDF chips, glowing mToken dongle + USB port, stamped PDF with pen badge, signed download tray) with floating accent chips, connecting arrow nodes and hover lift; static/gentle-motion only — How It Works animation deliberately unchanged per user request
+
 ## Backlog
 - P0: none blocking
 - P1: Wire demo form to backend (DB + email notification), real installer download link
