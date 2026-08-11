@@ -62,7 +62,7 @@ export default function Hero() {
           </motion.p>
 
           <h1 className="font-heading text-5xl font-extrabold leading-[1.02] tracking-tighter sm:text-6xl lg:text-7xl">
-            {["Sign PDFs locally", "with your"].map((t, i) => (
+            {["Sign Multiple PDFs", "with Your"].map((t, i) => (
               <span key={t} className="block overflow-hidden pb-1">
                 <motion.span
                   className="block"
@@ -83,7 +83,7 @@ export default function Hero() {
                 initial="hidden"
                 animate="visible"
               >
-                Class 3 DSC.
+                USB DSC
               </motion.span>
             </span>
           </h1>
