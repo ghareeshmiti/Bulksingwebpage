@@ -74,6 +74,9 @@ Design a complete HTML marketing webpage for SignuluOne BulkSigner — a Windows
 ## Iteration 12 (11 Aug 2026) — Mobile horizontal-overflow fix
 - Fixed mobile (390px) page overflow (scrollWidth 595 → 390): OverviewFlow section got overflow-hidden (800px glow bled out), AppTour FilesPanel hidden below md, invoice capped at 260px on small screens, and html-level overflow-x hidden added as safeguard
 
+## Iteration 13 (11 Aug 2026) — Fourth theme: Corporate Blue
+- Added corporate SignuluOne blue theme (white background, royal blue #2563EB accents, deep navy headings — modeled on signuluone.com reference); theme cycle is now Dark Emerald → Light Amber → Dark Amber → Corporate Blue with per-theme icons (Moon/Sun/Sparkles/Palette); button text forced white on blue for contrast
+
 ## Backlog
 - P0: none blocking
 - P1: Wire demo form to backend (DB + email notification), real installer download link

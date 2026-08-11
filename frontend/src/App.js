@@ -18,7 +18,9 @@ export default function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("bs-theme") || "dark");
 
   const cycleTheme = () =>
-    setTheme((t) => (t === "dark" ? "light" : t === "light" ? "dark-amber" : "dark"));
+    setTheme((t) =>
+      t === "dark" ? "light" : t === "light" ? "dark-amber" : t === "dark-amber" ? "blue" : "dark",
+    );
 
   const goTo = useCallback((id) => {
     if (!SECTIONS.some((s) => s.id === id)) return;
@@ -51,7 +53,13 @@ export default function App() {
   return (
     <div
       className={`grain relative min-h-screen bg-[#09090B] text-white antialiased ${
-        theme === "light" ? "theme-light" : theme === "dark-amber" ? "theme-dark-amber" : ""
+        theme === "light"
+          ? "theme-light"
+          : theme === "dark-amber"
+            ? "theme-dark-amber"
+            : theme === "blue"
+              ? "theme-blue"
+              : ""
       }`}
     >
       <Navbar
