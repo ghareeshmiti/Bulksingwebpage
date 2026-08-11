@@ -32,8 +32,8 @@ export default function Marquee() {
         <Row />
         <Row hidden />
       </div>
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-[#0D0D0F] to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-[#0D0D0F] to-transparent" />
+      <div className="marquee-fade marquee-fade-l" />
+      <div className="marquee-fade marquee-fade-r" />
     </div>
   );
 }

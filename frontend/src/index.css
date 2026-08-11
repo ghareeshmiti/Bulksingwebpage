@@ -261,6 +261,21 @@ input[type='range']::-moz-range-thumb {
   border-color: #FDFBF6;
 }
 
+.marquee-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 8rem;
+  pointer-events: none;
+}
+.marquee-fade-l { left: 0; background: linear-gradient(to right, #0D0D0F, transparent); }
+.marquee-fade-r { right: 0; background: linear-gradient(to left, #0D0D0F, transparent); }
+.theme-light .marquee-fade-l { background: linear-gradient(to right, #F6F1E7, transparent); }
+.theme-light .marquee-fade-r { background: linear-gradient(to left, #F6F1E7, transparent); }
+.theme-blue .marquee-fade-l { background: linear-gradient(to right, #F4F6FE, transparent); }
+.theme-blue .marquee-fade-r { background: linear-gradient(to left, #F4F6FE, transparent); }
+
 .hero-grid-overlay {
   opacity: 0.06;
   background-image:
@@ -315,7 +330,8 @@ input[type='range']::-moz-range-thumb {
 .theme-dark-amber .hover\:border-emerald-500\/50:hover { border-color: rgba(245, 158, 11, 0.5); }
 .theme-dark-amber .hover\:border-emerald-500\/60:hover { border-color: rgba(245, 158, 11, 0.6); }
 .theme-dark-amber .focus\:border-emerald-500:focus { border-color: #F59E0B; }
-.theme-dark-amber .via-emerald-500\/30 { --tw-gradient-via-color: rgba(245, 158, 11, 0.35); }
+.theme-dark-amber .via-emerald-500\/30 { --tw-gradient-via: rgba(245, 158, 11, 0.35) var(--tw-gradient-via-position); }
+.theme-dark-amber .via-emerald-500\/25 { --tw-gradient-via: rgba(245, 158, 11, 0.3) var(--tw-gradient-via-position); }
 .theme-dark-amber .decoration-emerald-500\/40 { text-decoration-color: rgba(245, 158, 11, 0.5); }
 .theme-dark-amber .chapter-num { -webkit-text-stroke: 1px rgba(245, 158, 11, 0.3); }
 .theme-dark-amber .glow-emerald {
@@ -407,7 +423,8 @@ input[type='range']::-moz-range-thumb {
 .theme-blue .hover\:border-white\/25:hover { border-color: rgba(15, 27, 61, 0.25); }
 .theme-blue .focus\:border-emerald-500:focus { border-color: #2563EB; }
 .theme-blue .divide-white\/\[0\.06\] > :not([hidden]) ~ :not([hidden]) { border-color: rgba(15, 27, 61, 0.08); }
-.theme-blue .via-emerald-500\/30 { --tw-gradient-via-color: rgba(37, 99, 235, 0.35); }
+.theme-blue .via-emerald-500\/30 { --tw-gradient-via: rgba(37, 99, 235, 0.35) var(--tw-gradient-via-position); }
+.theme-blue .via-emerald-500\/25 { --tw-gradient-via: rgba(37, 99, 235, 0.3) var(--tw-gradient-via-position); }
 .theme-blue .decoration-emerald-500\/40 { text-decoration-color: rgba(37, 99, 235, 0.5); }
 .theme-blue .from-\[\#0D0D0F\] { --tw-gradient-from-color: #F4F6FE; }
 
