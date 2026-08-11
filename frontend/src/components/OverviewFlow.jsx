@@ -91,7 +91,7 @@ const SCENES = { select: SelectScene, dongle: DongleScene, sign: SignScene, down
 
 export default function OverviewFlow() {
   return (
-    <section data-testid="overview-flow" className="relative border-t border-white/5 bg-[#0D0D0F] py-16">
+    <section data-testid="overview-flow" className="relative overflow-hidden border-t border-white/5 bg-[#0D0D0F] py-16">
       <div className="glow-emerald pointer-events-none absolute left-1/2 top-0 h-[300px] w-[800px] -translate-x-1/2" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal>

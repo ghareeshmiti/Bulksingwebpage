@@ -80,7 +80,7 @@ const Toast = ({ title, sub }) => (
 );
 
 const Invoice = ({ children }) => (
-  <div className="relative mx-auto h-full w-full max-w-sm overflow-hidden rounded-md bg-white p-5 text-zinc-800 shadow-xl">
+  <div className="relative mx-auto h-full w-full max-w-[260px] overflow-hidden rounded-md bg-white p-4 text-zinc-800 shadow-xl sm:max-w-sm sm:p-5">
     <p className="font-heading text-sm font-bold">Invoice - INV-22</p>
     <p className="absolute right-5 top-5 text-[10px] font-semibold text-zinc-500">#INV-22</p>
     <div className="mt-3 space-y-1">
@@ -105,7 +105,7 @@ const Invoice = ({ children }) => (
 );
 
 const FilesPanel = () => (
-  <div className="flex w-52 shrink-0 flex-col gap-3 border-r border-white/10 p-3">
+  <div className="hidden w-52 shrink-0 flex-col gap-3 border-r border-white/10 p-3 md:flex">
     <p className="flex items-center justify-between text-xs font-semibold text-white">
       Files <Trash2 size={12} className="text-zinc-500" />
     </p>

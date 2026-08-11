@@ -44,6 +44,9 @@
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
+  html {
+    overflow-x: hidden;
+  }
 }
 
 .font-heading { font-family: 'Cabinet Grotesk', sans-serif; }

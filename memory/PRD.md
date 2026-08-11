@@ -71,6 +71,9 @@ Design a complete HTML marketing webpage for SignuluOne BulkSigner — a Windows
 - Merged sections per user request: Product Interface (+ AppTour) now lives under Overview; Signature Placement and Signing Process now live under How It Works (no longer separate sections/pages)
 - Sections reduced 13 → 10; chapters renumbered sequentially (Overview 01, Features 02, How It Works 03, Security 04, Use Cases 05, Testimonials 06, Pricing 07, Download 08, Demo 09, FAQ 10); ChapterHeader watermark made optional and removed from merged subsections; navbar trimmed back to 9 links
 
+## Iteration 12 (11 Aug 2026) — Mobile horizontal-overflow fix
+- Fixed mobile (390px) page overflow (scrollWidth 595 → 390): OverviewFlow section got overflow-hidden (800px glow bled out), AppTour FilesPanel hidden below md, invoice capped at 260px on small screens, and html-level overflow-x hidden added as safeguard
+
 ## Backlog
 - P0: none blocking
 - P1: Wire demo form to backend (DB + email notification), real installer download link
