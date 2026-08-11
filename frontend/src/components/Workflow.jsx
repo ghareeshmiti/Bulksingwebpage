@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { toast } from "sonner";
 import {
   FileText,
   FolderOpen,
@@ -28,17 +29,35 @@ const INITIAL_FILES = [
 
 const SelectPanel = () => {
   const [files, setFiles] = useState(INITIAL_FILES);
+
+  const addSingle = () => {
+    if (files.includes(INITIAL_FILES[0])) {
+      toast.info("That PDF is already in the list");
+      return;
+    }
+    setFiles((prev) => [INITIAL_FILES[0], ...prev]);
+    toast.success("1 PDF added to the selection");
+  };
+
+  const addFolder = () => {
+    const merged = [...INITIAL_FILES];
+    setFiles(merged);
+    toast.success(`Folder added — ${INITIAL_FILES.length} PDFs found`);
+  };
+
   return (
     <div className="grid gap-6 md:grid-cols-[1fr_1.2fr]">
       <div className="flex flex-col gap-3">
         <button
           data-testid="workflow-select-pdf-btn"
+          onClick={addSingle}
           className="flex items-center justify-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 py-3 text-sm font-medium text-emerald-300 transition-[background-color] duration-300 hover:bg-emerald-500/20"
         >
           <FileText size={16} /> Select PDF
         </button>
         <button
           data-testid="workflow-select-folder-btn"
+          onClick={addFolder}
           className="flex items-center justify-center gap-2 rounded-xl border border-white/15 py-3 text-sm text-zinc-300 transition-[border-color,background-color] duration-300 hover:border-emerald-500/40 hover:bg-white/5"
         >
           <FolderOpen size={16} /> Select Folder
