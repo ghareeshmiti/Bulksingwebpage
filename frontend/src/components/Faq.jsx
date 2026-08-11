@@ -42,7 +42,7 @@ export default function Faq() {
     <section data-testid="faq-section" className="relative py-28 lg:py-36">
       <div className="mx-auto max-w-4xl px-6 lg:px-8">
         <ChapterHeader
-          chapter="12"
+          chapter="13"
           overline="FAQ"
           title="Questions About DSC Signing"
           description="Details on USB DSC support, certificate validity and how signed files are exported."

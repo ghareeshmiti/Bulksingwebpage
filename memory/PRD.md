@@ -41,6 +41,10 @@ Design a complete HTML marketing webpage for SignuluOne BulkSigner — a Windows
 - Added switchable light "amber" theme (cream background, amber accents — modeled on user's reference) alongside the default dark emerald theme; Sun/Moon toggle in navbar (desktop + mobile), persisted in localStorage, implemented via a .theme-light CSS override layer (no component rewrites)
 - Added AppTour inside the Product Interface section: auto-playing animated recreation of the real DSC BulkSigner app screens (Drag to Sign with animated signature chip, Signature Placed with Class 3 Organization stamp, Dashboard with stats/activity/token info), crossfading every ~5.6s with clickable step pills and progress bars; screens recreated in DOM (user's exact screenshots not used, per request)
 
+## Iteration 4 (11 Aug 2026) — Testimonials + hero headline change
+- Hero H1 changed to "Sign Multiple PDFs with Your USB DSC"
+- New Testimonials section (chapter 09, between Use Cases and Pricing; later chapters renumbered): "Word from Our Clients" with 3 dummy testimonial cards (AP High Court, HMWSB, Heritage Foods personas) and a 10-tile happy-clients logo strip of dummy AP/Telangana customers (AP High Court, HMWSB, Heritage Foods, APTRANSCO, TSRTC, Singareni Collieries, APEPDCL, TSSPDCL, APIIC, Kamineni Hospitals) with monogram badges; "Clients" added to navbar
+
 ## Backlog
 - P0: none blocking
 - P1: Wire demo form to backend (DB + email notification), real installer download link
