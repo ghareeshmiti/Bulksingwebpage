@@ -11,10 +11,10 @@ const REQUIREMENTS = [
 ];
 
 const DETAILS = [
-  ["Platform", "Windows desktop"],
-  ["Package", "Desktop installer"],
-  ["Certificate support", "Class 3 Individual and Organisation"],
-  ["Token", "mToken USB DSC"],
+  ["Operating System", "Windows 10 and 11 (64-bit)"],
+  ["Token Support", "Supported mToken USB DSC devices"],
+  ["Documents", "PDF files, single or folder-based"],
+  ["Processing", "Local desktop processing"],
 ];
 
 export default function Download() {

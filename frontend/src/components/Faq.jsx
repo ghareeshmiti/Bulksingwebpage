@@ -7,31 +7,31 @@ import { Reveal, ChapterHeader } from "@/components/shared";
 const FAQS = [
   {
     q: "Which USB DSC tokens are supported?",
-    a: "BulkSigner is designed for mToken USB DSC devices carrying Class 3 Individual or Organisation certificates issued by licensed Certifying Authorities such as eMudhra.",
+    a: "BulkSigner works with supported mToken USB DSC devices on Windows 10 and 11 (64-bit). The token driver and middleware supplied by your Certifying Authority must be installed, and the token must be connected before you start a signing batch.",
   },
   {
     q: "Do my PDF files get uploaded anywhere?",
-    a: "No. Documents are read, signed and written locally inside the installed desktop application. The website is used only for product information, downloads and enquiries.",
+    a: "No. Documents are read, signed and written on your own machine. The signing operation is performed by the USB DSC itself, so the private key never leaves the hardware token.",
   },
   {
     q: "How do I know my certificate is still valid?",
-    a: "BulkSigner shows the certificate holder, issuer and validity period before signing, so you can confirm the certificate is current before processing any document.",
+    a: "The application shows the connected token, the selected certificate, its issuer and its validity dates before signing. If the certificate has expired or the token is removed, signing stops and an alert explains what to fix.",
   },
   {
     q: "What happens when a certificate expires mid-renewal?",
-    a: "The application raises a Certificate Expired alert. Connect a token containing a valid certificate or select another available certificate to continue signing.",
+    a: "Signing is blocked for that certificate and the affected files stay in a Ready state. Once you connect a token containing a valid certificate, you can re-run the batch without reselecting the documents.",
   },
   {
     q: "Can I control where the visible signature appears?",
-    a: "Yes. Choose the supported page, horizontal and vertical position, and the width and height of the visible signature, with a preview before it is applied.",
+    a: "Yes. Choose the supported page, position and size of the visible signature before processing, and the same layout is applied consistently across every PDF in the batch.",
   },
   {
     q: "How are signed documents exported?",
-    a: "After reviewing the signing status of each file, you export the successfully signed PDF documents through the controlled export workflow in the desktop app.",
+    a: "Signed PDFs can be written back to the source folder or exported to a separate output folder, keeping original file names. Each row in the status list also has its own Export action for individual documents.",
   },
   {
     q: "Can one licence be used on multiple computers?",
-    a: "Licences are per Windows desktop system. Choose the licence band that matches the number of systems — 1–4 systems are billed as individual Basic licences.",
+    a: "Licences are priced per device per year. Volume tiers from 5 licences upward let you cover several machines under one annual agreement.",
   },
 ];
 
