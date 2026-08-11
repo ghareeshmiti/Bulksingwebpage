@@ -10,7 +10,8 @@ import {
   MonitorSmartphone,
   Fingerprint,
 } from "lucide-react";
-import { scrollTo, StatusBadge, SignatureStamp } from "@/components/shared";
+import { goToSection } from "@/lib/sectionNav";
+import { StatusBadge, SignatureStamp } from "@/components/shared";
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -106,7 +107,7 @@ export default function Hero() {
           >
             <button
               data-testid="hero-download-btn"
-              onClick={() => scrollTo("#download")}
+              onClick={() => goToSection("download")}
               className="group flex items-center gap-2.5 rounded-full bg-emerald-500 px-7 py-3.5 text-sm font-semibold text-[#09090B] transition-[box-shadow,background-color] duration-300 hover:bg-emerald-400 hover:shadow-[0_0_40px_rgba(16,185,129,0.45)]"
             >
               <Download size={17} className="transition-transform duration-300 group-hover:translate-y-0.5" />
@@ -114,7 +115,7 @@ export default function Hero() {
             </button>
             <button
               data-testid="hero-view-plans-btn"
-              onClick={() => scrollTo("#pricing")}
+              onClick={() => goToSection("pricing")}
               className="group flex items-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-sm font-medium text-white transition-[border-color,background-color] duration-300 hover:border-emerald-500/50 hover:bg-white/5"
             >
               View Plans

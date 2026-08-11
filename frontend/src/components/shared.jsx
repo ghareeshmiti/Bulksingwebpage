@@ -1,13 +1,5 @@
 import { motion } from "framer-motion";
 
-export const scrollTo = (hash) => {
-  if (window.__lenis) {
-    window.__lenis.scrollTo(hash, { offset: -72 });
-  } else {
-    document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
-  }
-};
-
 export const Reveal = ({ children, delay = 0, y = 40, className = "" }) => (
   <motion.div
     initial={{ opacity: 0, y }}

@@ -1,6 +1,7 @@
 import { Download as DownloadIcon, MonitorDown, Check, Presentation } from "lucide-react";
 import { toast } from "sonner";
-import { Reveal, ChapterHeader, scrollTo } from "@/components/shared";
+import { goToSection } from "@/lib/sectionNav";
+import { Reveal, ChapterHeader } from "@/components/shared";
 
 const REQUIREMENTS = [
   "Windows desktop system",
@@ -54,7 +55,7 @@ export default function Download() {
               </button>
               <button
                 data-testid="download-demo-btn"
-                onClick={() => scrollTo("#demo")}
+                onClick={() => goToSection("demo")}
                 className="flex items-center gap-2 rounded-full border border-white/15 px-8 py-4 text-sm font-medium text-white transition-[border-color,background-color] duration-300 hover:border-emerald-500/50 hover:bg-white/5"
               >
                 <Presentation size={16} /> Request a Demo

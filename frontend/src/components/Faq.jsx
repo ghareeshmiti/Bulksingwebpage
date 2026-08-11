@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "lucide-react";
-import { Reveal, ChapterHeader, scrollTo } from "@/components/shared";
+import { goToSection } from "@/lib/sectionNav";
+import { Reveal, ChapterHeader } from "@/components/shared";
 
 const FAQS = [
   {
@@ -90,7 +91,7 @@ export default function Faq() {
             Still unsure?{" "}
             <button
               data-testid="faq-request-demo-link"
-              onClick={() => scrollTo("#demo")}
+              onClick={() => goToSection("demo")}
               className="font-medium text-emerald-400 underline decoration-emerald-500/40 underline-offset-4 transition-colors duration-300 hover:text-emerald-300"
             >
               Request a demo

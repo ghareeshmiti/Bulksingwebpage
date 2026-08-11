@@ -32,6 +32,11 @@ Design a complete HTML marketing webpage for SignuluOne BulkSigner — a Windows
 - Footer with final CTA and link columns
 - Grain texture overlay, emerald glow bleeds, glassmorphism, Cabinet Grotesk / Outfit / JetBrains Mono typography
 
+## Iteration 2 (11 Aug 2026) — SEO + section-wise navigation
+- Converted single-scroll page to section-wise navigation: 12 sections (overview, features, product, how-it-works, signature, process, security, use-cases, pricing, download, demo, faq), one visible at a time with animated transitions, hash-based URLs, per-section document titles, active-state navbar with Security added, full mobile menu listing all 12 sections, mobile bottom pager (prev/next)
+- SEO meta boost: description, keywords, robots, canonical, Open Graph + Twitter card tags, SoftwareApplication JSON-LD with INR offers, and a real 1200×630 og-image.png captured from the hero
+- Removed lenis smooth-scroll (no longer a long-scroll page)
+
 ## Backlog
 - P0: none blocking
 - P1: Wire demo form to backend (DB + email notification), real installer download link

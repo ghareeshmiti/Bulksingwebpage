@@ -1,7 +1,8 @@
 import { useMemo, useState } from "react";
 import { Check, Sparkles } from "lucide-react";
 import { toast } from "sonner";
-import { Reveal, ChapterHeader, scrollTo } from "@/components/shared";
+import { goToSection } from "@/lib/sectionNav";
+import { Reveal, ChapterHeader } from "@/components/shared";
 
 const CORE = [
   "Windows desktop application",
@@ -96,7 +97,7 @@ export default function Pricing() {
                 </ul>
                 <button
                   data-testid={`pricing-cta-${t.name.toLowerCase()}`}
-                  onClick={() => (t.name === "Basic" ? scrollTo("#download") : scrollTo("#demo"))}
+                  onClick={() => (t.name === "Basic" ? goToSection("download") : goToSection("demo"))}
                   className={`mt-7 rounded-full py-3 text-sm font-semibold transition-[background-color,box-shadow,color] duration-300 ${
                     t.popular
                       ? "bg-emerald-500 text-[#09090B] hover:bg-emerald-400 hover:shadow-[0_0_28px_rgba(16,185,129,0.5)]"
@@ -183,7 +184,7 @@ export default function Pricing() {
                 data-testid="estimator-choose-plan-btn"
                 onClick={() => {
                   toast.success(`${plan.name} plan selected — ${licences} licence(s)`);
-                  scrollTo("#demo");
+                  goToSection("demo");
                 }}
                 className="mt-6 w-full rounded-full bg-emerald-500 py-3 text-sm font-bold text-[#09090B] transition-[background-color,box-shadow] duration-300 hover:bg-emerald-400 hover:shadow-[0_0_28px_rgba(16,185,129,0.45)]"
               >

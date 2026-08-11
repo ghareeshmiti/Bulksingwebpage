@@ -1,23 +1,24 @@
 import { Download, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
-import { Reveal, scrollTo } from "@/components/shared";
+import { Reveal } from "@/components/shared";
 import { Logo } from "@/components/Navbar";
 
 const PRODUCT_LINKS = [
-  { label: "Overview", hash: "#overview" },
-  { label: "Features", hash: "#features" },
-  { label: "How It Works", hash: "#how-it-works" },
-  { label: "Use Cases", hash: "#use-cases" },
+  { label: "Overview", id: "overview" },
+  { label: "Features", id: "features" },
+  { label: "How It Works", id: "how-it-works" },
+  { label: "Security", id: "security" },
+  { label: "Use Cases", id: "use-cases" },
 ];
 
 const START_LINKS = [
-  { label: "Pricing", hash: "#pricing" },
-  { label: "Download", hash: "#download" },
-  { label: "Request a Demo", hash: "#demo" },
-  { label: "Contact Sales", hash: "#demo" },
+  { label: "Pricing", id: "pricing" },
+  { label: "Download", id: "download" },
+  { label: "Request a Demo", id: "demo" },
+  { label: "FAQ", id: "faq" },
 ];
 
-export default function Footer() {
+export default function Footer({ onNavigate }) {
   return (
     <footer data-testid="footer-section" className="relative overflow-hidden border-t border-white/5 bg-[#0D0D0F]">
       <div className="glow-emerald pointer-events-none absolute left-1/2 top-0 h-[420px] w-[900px] -translate-x-1/2" />
@@ -37,7 +38,7 @@ export default function Footer() {
               </button>
               <button
                 data-testid="footer-view-plans-btn"
-                onClick={() => scrollTo("#pricing")}
+                onClick={() => onNavigate("pricing")}
                 className="group flex items-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-sm font-medium text-white transition-[border-color,background-color] duration-300 hover:border-emerald-500/50 hover:bg-white/5"
               >
                 View Plans
@@ -49,7 +50,7 @@ export default function Footer() {
 
         <div className="grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <Logo />
+            <Logo onNavigate={onNavigate} />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-zinc-500">
               SignuluOne BulkSigner is a Windows desktop application for signing individual
               PDFs or folders of PDFs using an mToken USB DSC.
@@ -67,8 +68,8 @@ export default function Footer() {
                 {col.links.map((l) => (
                   <li key={l.label}>
                     <button
-                      data-testid={`footer-link-${l.label.toLowerCase().replace(/\s+/g, "-")}`}
-                      onClick={() => scrollTo(l.hash)}
+                      data-testid={`footer-link-${l.id}`}
+                      onClick={() => onNavigate(l.id)}
                       className="text-sm text-zinc-400 transition-colors duration-300 hover:text-emerald-400"
                     >
                       {l.label}
