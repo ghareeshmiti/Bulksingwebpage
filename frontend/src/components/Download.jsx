@@ -48,7 +48,7 @@ export default function Download() {
               <button
                 data-testid="download-installer-btn"
                 onClick={() => toast.success("BulkSigner installer download started (demo build)")}
-                className="group flex items-center gap-2.5 rounded-full bg-emerald-500 px-8 py-4 text-sm font-bold text-[#09090B] transition-[background-color,box-shadow] duration-300 hover:bg-emerald-400 hover:shadow-[0_0_40px_rgba(16,185,129,0.5)]"
+                className="group flex items-center gap-2.5 rounded-full bg-emerald-500 px-8 py-4 text-sm font-bold text-[#09090B] transition-[background-color,box-shadow] duration-300 hover:bg-emerald-400 btn-glow"
               >
                 <DownloadIcon size={17} className="transition-transform duration-300 group-hover:translate-y-0.5" />
                 Download BulkSigner

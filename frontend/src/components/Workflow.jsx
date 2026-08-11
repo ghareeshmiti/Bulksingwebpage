@@ -9,6 +9,7 @@ import {
   MousePointerClick,
 } from "lucide-react";
 import { Reveal, ChapterHeader, StatusBadge, SignatureStamp } from "@/components/shared";
+import AppTour from "@/components/AppTour";
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -226,6 +227,7 @@ export default function Workflow() {
             </AnimatePresence>
           </div>
         </Reveal>
+        <AppTour />
       </div>
     </section>
   );

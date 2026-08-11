@@ -72,7 +72,7 @@ export default function Pricing() {
                 data-testid={`pricing-card-${t.name.toLowerCase()}`}
                 className={`relative flex h-full flex-col rounded-2xl border p-7 backdrop-blur-xl transition-[border-color,transform] duration-500 hover:-translate-y-1.5 ${
                   t.popular
-                    ? "border-emerald-500/60 bg-emerald-500/[0.07] shadow-[0_0_60px_-15px_rgba(16,185,129,0.4)]"
+                    ? "border-emerald-500/60 bg-emerald-500/[0.07] card-glow"
                     : "border-white/10 bg-white/[0.03] hover:border-emerald-500/30"
                 }`}
               >
@@ -100,7 +100,7 @@ export default function Pricing() {
                   onClick={() => (t.name === "Basic" ? goToSection("download") : goToSection("demo"))}
                   className={`mt-7 rounded-full py-3 text-sm font-semibold transition-[background-color,box-shadow,color] duration-300 ${
                     t.popular
-                      ? "bg-emerald-500 text-[#09090B] hover:bg-emerald-400 hover:shadow-[0_0_28px_rgba(16,185,129,0.5)]"
+                      ? "bg-emerald-500 text-[#09090B] hover:bg-emerald-400 btn-glow"
                       : "border border-white/15 text-white hover:border-emerald-500/50 hover:bg-white/5"
                   }`}
                 >
@@ -186,7 +186,7 @@ export default function Pricing() {
                   toast.success(`${plan.name} plan selected — ${licences} licence(s)`);
                   goToSection("demo");
                 }}
-                className="mt-6 w-full rounded-full bg-emerald-500 py-3 text-sm font-bold text-[#09090B] transition-[background-color,box-shadow] duration-300 hover:bg-emerald-400 hover:shadow-[0_0_28px_rgba(16,185,129,0.45)]"
+                className="mt-6 w-full rounded-full bg-emerald-500 py-3 text-sm font-bold text-[#09090B] transition-[background-color,box-shadow] duration-300 hover:bg-emerald-400 btn-glow"
               >
                 Choose {plan.name}
               </button>

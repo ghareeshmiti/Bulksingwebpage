@@ -37,6 +37,10 @@ Design a complete HTML marketing webpage for SignuluOne BulkSigner — a Windows
 - SEO meta boost: description, keywords, robots, canonical, Open Graph + Twitter card tags, SoftwareApplication JSON-LD with INR offers, and a real 1200×630 og-image.png captured from the hero
 - Removed lenis smooth-scroll (no longer a long-scroll page)
 
+## Iteration 3 (11 Aug 2026) — Light theme + animated app tour
+- Added switchable light "amber" theme (cream background, amber accents — modeled on user's reference) alongside the default dark emerald theme; Sun/Moon toggle in navbar (desktop + mobile), persisted in localStorage, implemented via a .theme-light CSS override layer (no component rewrites)
+- Added AppTour inside the Product Interface section: auto-playing animated recreation of the real DSC BulkSigner app screens (Drag to Sign with animated signature chip, Signature Placed with Class 3 Organization stamp, Dashboard with stats/activity/token info), crossfading every ~5.6s with clickable step pills and progress bars; screens recreated in DOM (user's exact screenshots not used, per request)
+
 ## Backlog
 - P0: none blocking
 - P1: Wire demo form to backend (DB + email notification), real installer download link

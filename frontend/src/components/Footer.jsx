@@ -32,7 +32,7 @@ export default function Footer({ onNavigate }) {
               <button
                 data-testid="footer-download-btn"
                 onClick={() => toast.success("BulkSigner installer download started (demo build)")}
-                className="flex items-center gap-2.5 rounded-full bg-emerald-500 px-7 py-3.5 text-sm font-bold text-[#09090B] transition-[background-color,box-shadow] duration-300 hover:bg-emerald-400 hover:shadow-[0_0_36px_rgba(16,185,129,0.5)]"
+                className="flex items-center gap-2.5 rounded-full bg-emerald-500 px-7 py-3.5 text-sm font-bold text-[#09090B] transition-[background-color,box-shadow] duration-300 hover:bg-emerald-400 btn-glow"
               >
                 <Download size={16} /> Download BulkSigner
               </button>

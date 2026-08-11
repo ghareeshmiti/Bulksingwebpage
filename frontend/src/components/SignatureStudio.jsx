@@ -140,7 +140,7 @@ export default function SignatureStudio() {
                 <button
                   data-testid="studio-apply-btn"
                   onClick={() => toast.success(`Configuration applied — ${page}, ${x}% × ${y}%, ${w}×${h}px`)}
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 py-3.5 text-sm font-bold text-[#09090B] transition-[background-color,box-shadow] duration-300 hover:bg-emerald-400 hover:shadow-[0_0_32px_rgba(16,185,129,0.45)]"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 py-3.5 text-sm font-bold text-[#09090B] transition-[background-color,box-shadow] duration-300 hover:bg-emerald-400 btn-glow"
                 >
                   <Check size={16} /> Apply Configuration
                 </button>

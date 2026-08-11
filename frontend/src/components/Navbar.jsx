@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { NAV_LINKS, SECTIONS } from "@/sections";
 
 export const Logo = ({ onNavigate }) => (
@@ -21,7 +21,7 @@ export const Logo = ({ onNavigate }) => (
   </button>
 );
 
-export default function Navbar({ active, onNavigate }) {
+export default function Navbar({ active, onNavigate, theme, onToggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -69,27 +69,45 @@ export default function Navbar({ active, onNavigate }) {
             </button>
           ))}
         </div>
-        <div className="hidden xl:block">
+        <div className="hidden items-center gap-3 xl:flex">
+          <button
+            data-testid="theme-toggle-btn"
+            onClick={onToggleTheme}
+            aria-label="Toggle theme"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-zinc-300 transition-[border-color,color] duration-300 hover:border-emerald-500/50 hover:text-emerald-400"
+          >
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
           <button
             data-testid="nav-request-demo-btn"
             onClick={() => go("demo")}
             className={`rounded-full border px-5 py-2 text-sm font-medium transition-[background-color,box-shadow,border-color,color] duration-300 ${
               active === "demo"
                 ? "border-emerald-500 bg-emerald-500 text-[#09090B]"
-                : "border-emerald-500/50 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 hover:shadow-[0_0_24px_rgba(16,185,129,0.35)]"
+                : "border-emerald-500/50 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 btn-glow"
             }`}
           >
             Request a Demo
           </button>
         </div>
-        <button
-          data-testid="nav-mobile-menu-btn"
-          className="text-zinc-300 xl:hidden"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-2 xl:hidden">
+          <button
+            data-testid="theme-toggle-mobile-btn"
+            onClick={onToggleTheme}
+            aria-label="Toggle theme"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-zinc-300"
+          >
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
+          <button
+            data-testid="nav-mobile-menu-btn"
+            className="text-zinc-300"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
       <AnimatePresence>
         {open && (

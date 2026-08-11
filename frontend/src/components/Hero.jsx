@@ -47,7 +47,7 @@ export default function Hero() {
     <section id="overview" ref={ref} data-testid="hero-section" className="relative overflow-hidden pt-[72px]">
       <motion.div style={{ y: bgY }} className="pointer-events-none absolute inset-0">
         <div className="glow-emerald absolute -top-40 left-1/2 h-[720px] w-[1100px] -translate-x-1/2" />
-        <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)] [background-size:64px_64px]" />
+        <div className="hero-grid-overlay absolute inset-0" />
       </motion.div>
 
       <div className="relative mx-auto grid max-w-7xl gap-16 px-6 pb-28 pt-16 md:pt-24 lg:grid-cols-[1.05fr_1fr] lg:px-8">
@@ -108,7 +108,7 @@ export default function Hero() {
             <button
               data-testid="hero-download-btn"
               onClick={() => goToSection("download")}
-              className="group flex items-center gap-2.5 rounded-full bg-emerald-500 px-7 py-3.5 text-sm font-semibold text-[#09090B] transition-[box-shadow,background-color] duration-300 hover:bg-emerald-400 hover:shadow-[0_0_40px_rgba(16,185,129,0.45)]"
+              className="group flex items-center gap-2.5 rounded-full bg-emerald-500 px-7 py-3.5 text-sm font-semibold text-[#09090B] transition-[box-shadow,background-color] duration-300 hover:bg-emerald-400 btn-glow"
             >
               <Download size={17} className="transition-transform duration-300 group-hover:translate-y-0.5" />
               Download BulkSigner
