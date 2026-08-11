@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Toaster } from "sonner";
 import { ArrowLeft, ArrowRight } from "lucide-react";
