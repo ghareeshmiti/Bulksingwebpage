@@ -7,7 +7,6 @@ import SignatureStudio from "@/components/SignatureStudio";
 import SigningProcess from "@/components/SigningProcess";
 import Security from "@/components/Security";
 import UseCases from "@/components/UseCases";
-import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Download from "@/components/Download";
 import DemoForm from "@/components/DemoForm";
@@ -35,7 +34,6 @@ export const SECTIONS = [
   { id: "how-it-works", label: "How It Works", chapter: "03", component: HowItWorksPage, title: "How It Works — SignuluOne BulkSigner" },
   { id: "security", label: "Security", chapter: "04", component: Security, title: "Security — SignuluOne BulkSigner" },
   { id: "use-cases", label: "Use Cases", chapter: "05", component: UseCases, title: "Use Cases — SignuluOne BulkSigner" },
-  { id: "testimonials", label: "Testimonials", chapter: "06", component: Testimonials, title: "Testimonials — SignuluOne BulkSigner" },
   { id: "pricing", label: "Pricing", chapter: "07", component: Pricing, title: "Pricing — SignuluOne BulkSigner" },
   { id: "download", label: "Download", chapter: "08", component: Download, title: "Download BulkSigner for Windows — SignuluOne" },
   { id: "demo", label: "Request a Demo", chapter: "09", component: DemoForm, title: "Request a Demo — SignuluOne BulkSigner" },
@@ -48,7 +46,6 @@ export const NAV_LINKS = [
   { id: "how-it-works", label: "How It Works" },
   { id: "security", label: "Security" },
   { id: "use-cases", label: "Use Cases" },
-  { id: "testimonials", label: "Clients" },
   { id: "pricing", label: "Pricing" },
   { id: "download", label: "Download" },
   { id: "faq", label: "FAQ" },

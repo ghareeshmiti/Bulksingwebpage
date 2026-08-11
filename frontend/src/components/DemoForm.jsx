@@ -42,7 +42,7 @@ export default function DemoForm() {
             <div className="space-y-5">
               <a
                 data-testid="contact-email-link"
-                href="mailto:sales@signuluone.com"
+                href="mailto:support@signulu.com"
                 className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-[border-color] duration-300 hover:border-emerald-500/40"
               >
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-emerald-500/25 bg-emerald-500/10 text-emerald-400">
@@ -50,7 +50,7 @@ export default function DemoForm() {
                 </span>
                 <div>
                   <p className="font-mono2 text-[10px] uppercase tracking-[0.2em] text-zinc-500">Email</p>
-                  <p className="text-sm font-medium">sales@signuluone.com</p>
+                  <p className="text-sm font-medium">support@signulu.com</p>
                 </div>
               </a>
               <a
@@ -63,7 +63,7 @@ export default function DemoForm() {
                 </span>
                 <div>
                   <p className="font-mono2 text-[10px] uppercase tracking-[0.2em] text-zinc-500">Phone</p>
-                  <p className="text-sm font-medium">+91 90000 00000</p>
+                  <p className="text-sm font-medium">+91 9176446858</p>
                 </div>
               </a>
               <p className="pt-4 text-sm leading-relaxed text-zinc-500">

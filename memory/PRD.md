@@ -27,7 +27,7 @@ Design a complete HTML marketing webpage for SignuluOne BulkSigner — a Windows
 - Use Cases — 6 team scenarios
 - Pricing: 4 tiers (Basic ₹2,200 / Pro ₹1,800 Most Popular / Business ₹1,500 / Enterprise ₹1,000) + live licence cost estimator with recommended plan and annual subtotal
 - Download section with installer details panel
-- Demo request form (MOCKED front-end only, success state + toast), contact cards (sales@signuluone.com, +91 90000 00000)
+- Demo request form (MOCKED front-end only, success state + toast), contact cards (support@signulu.com, +91 9176446858)
 - FAQ accordion (7 questions)
 - Footer with final CTA and link columns
 - Grain texture overlay, emerald glow bleeds, glassmorphism, Cabinet Grotesk / Outfit / JetBrains Mono typography
