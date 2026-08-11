@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { motion, animate, useInView } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import {
   FileSignature,
   FolderOpen,
@@ -123,34 +123,6 @@ const FEATURES = [
   { icon: ListChecks, title: "Clear Signing Status", desc: "See whether each selected PDF is ready, signing, signed or failed.", span: "md:col-span-2", Visual: StatusCycleVisual },
 ];
 
-const Counter = ({ to, suffix = "" }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  const [val, setVal] = useState(0);
-  useEffect(() => {
-    if (!inView) return;
-    const controls = animate(0, to, {
-      duration: 1.8,
-      ease: "easeOut",
-      onUpdate: (v) => setVal(Math.round(v)),
-    });
-    return () => controls.stop();
-  }, [inView, to]);
-  return (
-    <span ref={ref} data-testid={`counter-${to}${suffix.replace(/\W/g, "")}`}>
-      {val}
-      {suffix}
-    </span>
-  );
-};
-
-const STATS = [
-  { value: 100, suffix: "%", label: "Local desktop processing" },
-  { value: 0, suffix: "", label: "Files uploaded anywhere", hold: true },
-  { value: 2, suffix: "", label: "Class 3 certificate types" },
-  { value: 4, suffix: "", label: "Steps from folder to signed PDF" },
-];
-
 export default function Features() {
   return (
     <section id="features" data-testid="features-section" className="relative py-28 lg:py-36">
@@ -162,22 +134,6 @@ export default function Features() {
           title="Built for Faster Desktop PDF Signing"
           description="Reduce repetitive document selection and signature placement while keeping PDF processing within the desktop application."
         />
-
-        <Reveal>
-          <div
-            data-testid="features-stats-band"
-            className="mb-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] lg:grid-cols-4"
-          >
-            {STATS.map((s) => (
-              <div key={s.label} className="bg-[#0D0D0F] px-6 py-7">
-                <p className="font-heading text-4xl font-extrabold tracking-tight text-emerald-400 sm:text-5xl">
-                  {s.hold ? "0" : <Counter to={s.value} suffix={s.suffix} />}
-                </p>
-                <p className="mt-2 text-xs text-zinc-500">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
 
         <div className="grid gap-5 md:grid-cols-3">
           {FEATURES.map((f, i) => (
