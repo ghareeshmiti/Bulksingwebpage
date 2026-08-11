@@ -60,6 +60,10 @@ Design a complete HTML marketing webpage for SignuluOne BulkSigner — a Windows
 ## Iteration 8 (11 Aug 2026) — Overview pictorial flow strip
 - Added OverviewFlow ("Select · Connect · Sign · Download") on the Overview page between hero and marquee: 4 pictorial infographic cards (folder+PDF chips, glowing mToken dongle + USB port, stamped PDF with pen badge, signed download tray) with floating accent chips, connecting arrow nodes and hover lift; static/gentle-motion only — How It Works animation deliberately unchanged per user request
 
+## Iteration 9 (11 Aug 2026) — Animated Features section
+- Added count-up stats band above the bento grid (100% local processing, 0 uploads, 2 cert types, 4 steps) with scroll-triggered counters
+- Each of the 6 feature cards now has a looping micro-animation: SVG signature self-drawing (Single PDF), files stacking (Bulk), radar pulse rings (Local Processing), stamp hopping between corners (Placement), certificate scan line (Certificate Visibility), status pill cycling Ready→Signing→Signed (Clear Status)
+
 ## Backlog
 - P0: none blocking
 - P1: Wire demo form to backend (DB + email notification), real installer download link
