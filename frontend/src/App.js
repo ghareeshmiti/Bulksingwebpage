@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Toaster } from "sonner";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -15,14 +15,6 @@ const sectionFromHash = () => {
 
 export default function App() {
   const [active, setActive] = useState(sectionFromHash);
-  const [theme, setTheme] = useState(() => {
-    const stored = localStorage.getItem("bs-theme");
-    return stored === "light" || stored === "dark-amber" ? stored : "blue";
-  });
-
-  const cycleTheme = () =>
-    setTheme((t) => (t === "blue" ? "light" : t === "light" ? "dark-amber" : "blue"));
-
   const goTo = useCallback((id) => {
     if (!SECTIONS.some((s) => s.id === id)) return;
     window.history.pushState(null, "", `#${id}`);
@@ -42,32 +34,16 @@ export default function App() {
     if (s) document.title = s.title;
   }, [active]);
 
-  useEffect(() => {
-    localStorage.setItem("bs-theme", theme);
-  }, [theme]);
-
   const idx = SECTIONS.findIndex((s) => s.id === active);
   const ActiveComponent = SECTIONS[idx].component;
   const prev = SECTIONS[idx - 1];
   const next = SECTIONS[idx + 1];
 
   return (
-    <div
-      className={`grain relative min-h-screen bg-[#09090B] text-white antialiased ${
-        theme === "light"
-          ? "theme-light"
-          : theme === "dark-amber"
-            ? "theme-dark-amber"
-            : theme === "blue"
-              ? "theme-blue"
-              : ""
-      }`}
-    >
+    <div className="grain relative min-h-screen bg-[#09090B] text-white antialiased theme-blue">
       <Navbar
         active={active}
         onNavigate={goTo}
-        theme={theme}
-        onToggleTheme={cycleTheme}
       />
       <main className="pb-24 md:pb-0">
         <AnimatePresence mode="wait">

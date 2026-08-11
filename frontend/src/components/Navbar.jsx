@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, Sun, Sparkles, Palette } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { NAV_LINKS, SECTIONS } from "@/sections";
-
-export const ThemeIcon = ({ theme, size = 16 }) =>
-  theme === "light" ? <Sun size={size} /> : theme === "dark-amber" ? <Sparkles size={size} /> : <Palette size={size} />;
 
 export const Logo = ({ onNavigate }) => (
   <button
@@ -26,7 +23,7 @@ export const Logo = ({ onNavigate }) => (
   </button>
 );
 
-export default function Navbar({ active, onNavigate, theme, onToggleTheme }) {
+export default function Navbar({ active, onNavigate }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -76,17 +73,6 @@ export default function Navbar({ active, onNavigate, theme, onToggleTheme }) {
         </div>
         <div className="hidden items-center gap-3 xl:flex">
           <button
-            data-testid="theme-toggle-btn"
-            onClick={onToggleTheme}
-            aria-label="Switch theme"
-            title={
-              theme === "light" ? "Light Amber" : theme === "dark-amber" ? "Dark Amber" : "Corporate Blue"
-            }
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-zinc-300 transition-[border-color,color] duration-300 hover:border-emerald-500/50 hover:text-emerald-400"
-          >
-            <ThemeIcon theme={theme} />
-          </button>
-          <button
             data-testid="nav-request-demo-btn"
             onClick={() => go("demo")}
             className={`rounded-full border px-5 py-2 text-sm font-medium transition-[background-color,box-shadow,border-color,color] duration-300 ${
@@ -99,14 +85,6 @@ export default function Navbar({ active, onNavigate, theme, onToggleTheme }) {
           </button>
         </div>
         <div className="flex items-center gap-2 xl:hidden">
-          <button
-            data-testid="theme-toggle-mobile-btn"
-            onClick={onToggleTheme}
-            aria-label="Switch theme"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-zinc-300"
-          >
-            <ThemeIcon theme={theme} />
-          </button>
           <button
             data-testid="nav-mobile-menu-btn"
             className="text-zinc-300"
