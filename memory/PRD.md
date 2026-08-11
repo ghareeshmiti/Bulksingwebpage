@@ -52,6 +52,11 @@ Design a complete HTML marketing webpage for SignuluOne BulkSigner — a Windows
 - Added third theme "Dark Amber" (dark background with yellow/amber accents mirroring the light theme palette); navbar toggle now cycles Dark Emerald → Light Amber → Dark Amber with per-theme icons (Moon/Sun/Sparkles), persisted in localStorage
 - Replaced the "S" monogram with the official SignuluOne logo image (https://www.signuluone.com/img/Signing%20Solutions.png) in navbar and footer
 
+## Iteration 7 (11 Aug 2026) — Marquee polish, FAQ nav + real answers, richer flow animation
+- Rebuilt editorial marquee: proper separator spacing, translate3d GPU motion, 60s pace, edge fade masks, hover pause; tightened hero bottom gap
+- Added FAQ to desktop navbar; replaced all 7 FAQ answers with user's final copy (Win 10/11 64-bit, driver/middleware, Ready-state on expiry, batch layout, export to source/output folder, per-device licensing); refreshed Download installer panel (OS, Token Support, Documents, Processing)
+- Rebuilt SigningFlow as "From Folder to Signed PDF, Automatically": 4 phases — select single PDF or folder (drag one or many), connect dongle to PC USB port, app auto-detects mToken and signs batch with staggered statuses + progress, download signed docs (per-file rows + Download all button)
+
 ## Backlog
 - P0: none blocking
 - P1: Wire demo form to backend (DB + email notification), real installer download link

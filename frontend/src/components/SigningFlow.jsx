@@ -1,30 +1,38 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { FileText, CheckCircle2, Download, PenLine } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FileText,
+  FolderOpen,
+  CheckCircle2,
+  Download,
+  Usb,
+  MonitorSmartphone,
+  Zap,
+} from "lucide-react";
 import { Reveal } from "@/components/shared";
 
 const EASE = [0.22, 1, 0.36, 1];
-const PHASE_MS = 3200;
+const PHASE_MS = 3600;
 
 const PHASES = [
-  { label: "Drop the PDF", caption: "Drag your PDF document into the BulkSigner window." },
-  { label: "Position the signature", caption: "Place the visible signature exactly where it belongs on the page." },
-  { label: "Dongle signs locally", caption: "The connected mToken USB DSC applies the Class 3 signature." },
-  { label: "Signed output", caption: "The signed PDF is ready to export — nothing ever leaves your desktop." },
+  { label: "Select PDFs or folder", caption: "Pick a single PDF or a whole folder — drag one file or many into BulkSigner." },
+  { label: "Connect the dongle", caption: "Plug your mToken USB DSC into the PC — no setup needed at this step." },
+  { label: "Auto-detect and sign", caption: "BulkSigner detects the dongle automatically and signs every file in the batch." },
+  { label: "Download signed docs", caption: "Download the signed PDFs individually or all together — originals stay untouched." },
 ];
 
-const Zone = ({ title, active, children, testid }) => (
+const FILES = ["Agreement-2026.pdf", "Certificate-118.pdf", "Report-Q2.pdf"];
+
+const Panel = ({ title, active, children, testid, className = "" }) => (
   <div
     data-testid={testid}
-    className={`relative flex h-56 flex-col items-center justify-center rounded-xl border p-3 transition-[border-color,background-color] duration-500 ${
-      active
-        ? "border-emerald-500/50 bg-emerald-500/[0.06]"
-        : "border-white/10 bg-white/[0.02]"
-    }`}
+    className={`relative flex flex-col rounded-xl border p-4 transition-[border-color,background-color] duration-500 ${
+      active ? "border-emerald-500/50 bg-emerald-500/[0.05]" : "border-white/10 bg-white/[0.02]"
+    } ${className}`}
   >
     <span
-      className={`font-mono2 absolute left-3 top-2.5 text-[9px] uppercase tracking-[0.2em] transition-colors duration-500 ${
-        active ? "text-emerald-400" : "text-zinc-600"
+      className={`font-mono2 mb-3 flex items-center gap-1.5 text-[9px] uppercase tracking-[0.2em] transition-colors duration-500 ${
+        active ? "text-emerald-400" : "text-zinc-500"
       }`}
     >
       {title}
@@ -33,37 +41,16 @@ const Zone = ({ title, active, children, testid }) => (
   </div>
 );
 
-const PdfDoc = ({ stamped, faded = false }) => (
-  <div
-    className={`relative h-36 w-28 overflow-hidden rounded-md bg-white p-2.5 shadow-xl ${
-      faded ? "opacity-40" : ""
-    }`}
+const MiniFile = ({ name, delay = 0 }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 8 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4, delay, ease: EASE }}
+    className="flex items-center gap-1.5 rounded-md border border-white/10 bg-white/[0.03] px-2 py-1.5"
   >
-    <div className="mb-1.5 h-1.5 w-3/5 rounded bg-zinc-300" />
-    <div className="space-y-1">
-      {[100, 90, 100, 95, 70].map((w, i) => (
-        <div key={i} className="h-1 rounded bg-zinc-200" style={{ width: `${w}%` }} />
-      ))}
-    </div>
-    {stamped && (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.7 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.4, ease: EASE }}
-        className="absolute bottom-2 right-2 flex items-center gap-1 border border-dashed border-zinc-400 bg-white px-1.5 py-1"
-      >
-        <CheckCircle2 size={9} className="text-emerald-600" />
-        <span>
-          <span className="block text-[5px] font-semibold leading-tight text-zinc-700">
-            Digitally signed by
-          </span>
-          <span className="block text-[5px] leading-tight text-zinc-500">
-            Class 3 Organization · 2026.04.02
-          </span>
-        </span>
-      </motion.div>
-    )}
-  </div>
+    <FileText size={10} className="shrink-0 text-zinc-500" />
+    <span className="truncate text-[9px] text-zinc-300">{name}</span>
+  </motion.div>
 );
 
 const Dongle = ({ connected }) => (
@@ -80,14 +67,38 @@ const Dongle = ({ connected }) => (
       }`}
     >
       <span className="font-mono2 text-[9px] text-zinc-300">mToken</span>
-      <span
-        className={`h-1.5 w-1.5 rounded-full ${
-          connected ? "animate-status-pulse bg-emerald-400" : "bg-zinc-600"
-        }`}
-      />
+      <span className={`h-1.5 w-1.5 rounded-full ${connected ? "animate-status-pulse bg-emerald-400" : "bg-zinc-600"}`} />
     </div>
   </div>
 );
+
+const StatusPill = ({ phase, rowIndex }) => {
+  if (phase < 2) {
+    return <span className="rounded-full border border-zinc-500/40 bg-zinc-500/10 px-2 py-0.5 font-mono2 text-[8px] text-zinc-400">Ready</span>;
+  }
+  if (phase === 2) {
+    return (
+      <motion.span
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.4, delay: rowIndex * 0.55, ease: EASE }}
+        className="rounded-full border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 font-mono2 text-[8px] text-amber-400"
+      >
+        Signing…
+      </motion.span>
+    );
+  }
+  return (
+    <motion.span
+      initial={{ scale: 0.6, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.35, delay: rowIndex * 0.15, ease: EASE }}
+      className="flex items-center gap-1 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 font-mono2 text-[8px] text-emerald-400"
+    >
+      <CheckCircle2 size={8} /> Signed
+    </motion.span>
+  );
+};
 
 export default function SigningFlow() {
   const [phase, setPhase] = useState(0);
@@ -97,6 +108,8 @@ export default function SigningFlow() {
     return () => clearInterval(t);
   }, []);
 
+  const dongleConnected = phase >= 1;
+
   return (
     <Reveal delay={0.15}>
       <div data-testid="signing-flow" className="mt-20">
@@ -105,7 +118,7 @@ export default function SigningFlow() {
         </p>
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <h3 className="font-heading text-2xl font-bold tracking-tight sm:text-3xl">
-            Watch One PDF Travel Through BulkSigner
+            From Folder to Signed PDF, Automatically
           </h3>
           <p data-testid="flow-caption" className="max-w-md text-sm text-zinc-400">
             {PHASES[phase].caption}
@@ -113,95 +126,173 @@ export default function SigningFlow() {
         </div>
 
         <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 backdrop-blur-xl md:p-7">
-          <div className="relative grid gap-4 md:grid-cols-4">
-            <div className="absolute left-[12%] right-[12%] top-1/2 hidden h-px bg-gradient-to-r from-transparent via-emerald-500/25 to-transparent md:block" />
+          <div className="relative grid gap-4 lg:grid-cols-[1fr_1.5fr_1fr]">
+            <div className="absolute left-[18%] right-[18%] top-1/2 hidden h-px bg-gradient-to-r from-transparent via-emerald-500/25 to-transparent lg:block" />
 
-            <Zone title="01 · Inbox" active={phase === 0} testid="flow-zone-inbox">
-              {phase === 0 ? (
-                <motion.div
-                  data-testid="flow-pdf-actor"
-                  initial={{ y: -46, opacity: 0, rotate: -8 }}
-                  animate={{ y: 0, opacity: 1, rotate: 0 }}
-                  transition={{ duration: 0.9, ease: EASE }}
-                >
-                  <PdfDoc />
-                </motion.div>
-              ) : (
-                <PdfDoc faded />
-              )}
-            </Zone>
-
-            <Zone title="02 · Page" active={phase === 1} testid="flow-zone-page">
-              <div className="relative">
-                <PdfDoc stamped={phase >= 2} />
-                {phase === 1 && (
-                  <motion.div
-                    data-testid="flow-chip-actor"
-                    initial={{ x: -60, y: 46, opacity: 0 }}
-                    animate={{ x: 14, y: 26, opacity: 1 }}
-                    transition={{ duration: 1.1, delay: 0.3, ease: "easeInOut" }}
-                    className="absolute bottom-0 right-0 z-10 flex items-center gap-1 rounded-md border border-dashed border-emerald-500 bg-[#121214] px-2 py-1 text-[9px] text-emerald-300 shadow-lg"
-                  >
-                    <PenLine size={9} /> Signature
-                  </motion.div>
-                )}
+            <Panel
+              title={<><MonitorSmartphone size={11} /> 01 · Your files</>}
+              active={phase === 0}
+              testid="flow-zone-source"
+              className="min-h-[300px]"
+            >
+              <div className="space-y-3">
+                <div className={`rounded-lg border p-3 transition-[border-color] duration-500 ${phase === 0 ? "border-emerald-500/40 bg-emerald-500/[0.06]" : "border-white/10"}`}>
+                  <p className="mb-2 flex items-center gap-1.5 text-[10px] font-semibold text-zinc-300">
+                    <FileText size={11} className="text-emerald-400" /> Single PDF
+                  </p>
+                  <MiniFile name="Agreement-2026.pdf" />
+                </div>
+                <div className={`rounded-lg border p-3 transition-[border-color] duration-500 ${phase === 0 ? "border-emerald-500/40 bg-emerald-500/[0.06]" : "border-white/10"}`}>
+                  <p className="mb-2 flex items-center gap-1.5 text-[10px] font-semibold text-zinc-300">
+                    <FolderOpen size={11} className="text-emerald-400" /> Folder · 2 PDFs
+                  </p>
+                  <div className="space-y-1.5">
+                    <MiniFile name="Certificate-118.pdf" />
+                    <MiniFile name="Report-Q2.pdf" />
+                  </div>
+                </div>
+                <p className="text-center text-[9px] text-zinc-600">
+                  {phase === 0 ? "Dragging files into BulkSigner…" : "Drag one file or many"}
+                </p>
               </div>
-            </Zone>
+            </Panel>
 
-            <Zone title="03 · USB Dongle" active={phase === 2} testid="flow-zone-dongle">
-              <motion.div
-                animate={phase >= 2 ? { x: 0, opacity: 1 } : { x: 56, opacity: 0.35 }}
-                transition={{ duration: 0.9, ease: EASE }}
-              >
-                <Dongle connected={phase >= 2} />
-              </motion.div>
+            <Panel
+              title={<><Zap size={11} /> 02 · BulkSigner app</>}
+              active={phase === 0 || phase === 2}
+              testid="flow-zone-app"
+              className="min-h-[300px]"
+            >
+              <div className="flex items-center justify-between">
+                <p className="text-[10px] font-semibold text-zinc-200">Signing batch</p>
+                <AnimatePresence>
+                  {dongleConnected && (
+                    <motion.span
+                      data-testid="flow-autodetect-badge"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4, ease: EASE }}
+                      className="flex items-center gap-1 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[8px] text-emerald-400"
+                    >
+                      <Usb size={8} /> mToken auto-detected
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </div>
+              <div className="mt-3 space-y-2">
+                {FILES.map((f, i) => (
+                  <div
+                    key={f}
+                    data-testid={`flow-row-${i}`}
+                    className="flex items-center justify-between rounded-lg border border-white/[0.07] bg-white/[0.02] px-3 py-2"
+                  >
+                    <span className="flex min-w-0 items-center gap-2 text-[10px] text-zinc-300">
+                      <FileText size={11} className="shrink-0 text-zinc-500" />
+                      <span className="truncate">{f}</span>
+                    </span>
+                    <StatusPill phase={phase} rowIndex={i} />
+                  </div>
+                ))}
+              </div>
               {phase === 2 && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="mt-4 w-full max-w-[130px]"
-                >
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-4">
                   <div className="h-1 overflow-hidden rounded-full bg-white/10">
                     <motion.div
                       initial={{ width: "0%" }}
                       animate={{ width: "100%" }}
-                      transition={{ duration: 2.2, ease: "easeInOut" }}
+                      transition={{ duration: 2.8, ease: "easeInOut" }}
                       className="h-full rounded-full bg-emerald-500"
                     />
                   </div>
                   <p className="font-mono2 mt-1.5 text-center text-[8px] uppercase tracking-[0.2em] text-emerald-400">
-                    Signing…
+                    Signing batch on the dongle…
                   </p>
                 </motion.div>
               )}
-            </Zone>
-
-            <Zone title="04 · Output" active={phase === 3} testid="flow-zone-output">
-              {phase === 3 ? (
-                <motion.div
-                  data-testid="flow-output-actor"
-                  initial={{ x: -70, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.9, ease: EASE }}
-                  className="relative"
+              {phase === 3 && (
+                <motion.p
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: EASE }}
+                  className="mt-4 text-center text-[10px] text-emerald-400"
                 >
-                  <PdfDoc stamped />
-                  <motion.span
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.4, delay: 0.7, ease: EASE }}
-                    className="absolute -right-2 -top-2 flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500 text-[#09090B] shadow-lg"
-                  >
-                    <CheckCircle2 size={15} />
-                  </motion.span>
-                </motion.div>
-              ) : (
-                <div className="flex h-36 w-28 flex-col items-center justify-center gap-2 rounded-md border border-dashed border-white/15 text-zinc-600">
-                  <Download size={16} />
-                  <span className="text-[9px]">Signed PDF lands here</span>
-                </div>
+                  All 3 documents signed successfully
+                </motion.p>
               )}
-            </Zone>
+            </Panel>
+
+            <div className="flex flex-col gap-4">
+              <Panel
+                title={<><Usb size={11} /> 03 · PC USB port</>}
+                active={phase === 1}
+                testid="flow-zone-dongle"
+                className="flex-1"
+              >
+                <div className="flex flex-1 flex-col items-center justify-center gap-3">
+                  <div className="relative w-full max-w-[170px] rounded-lg border border-white/15 bg-[#121214] p-2.5">
+                    <p className="font-mono2 mb-2 text-[8px] uppercase tracking-[0.2em] text-zinc-500">Your PC</p>
+                    <div className="flex items-center gap-1.5">
+                      <span className={`h-4 w-8 rounded-sm border transition-colors duration-500 ${dongleConnected ? "border-emerald-500/60 bg-emerald-500/20" : "border-zinc-600 bg-zinc-800"}`} />
+                      <span className="font-mono2 text-[8px] text-zinc-600">USB</span>
+                    </div>
+                  </div>
+                  <motion.div
+                    animate={dongleConnected ? { y: -26, x: 0, opacity: 1 } : { y: 10, x: 26, opacity: 0.55 }}
+                    transition={{ duration: 1, ease: EASE }}
+                  >
+                    <Dongle connected={dongleConnected} />
+                  </motion.div>
+                  <p className="text-center text-[9px] text-zinc-600">
+                    {phase === 1 ? "Connecting dongle to the PC…" : dongleConnected ? "Dongle connected" : "Plug in your mToken"}
+                  </p>
+                </div>
+              </Panel>
+
+              <Panel
+                title={<><Download size={11} /> 04 · Download</>}
+                active={phase === 3}
+                testid="flow-zone-output"
+                className="flex-1"
+              >
+                <div className="flex flex-1 flex-col items-center justify-center gap-2.5">
+                  {phase === 3 ? (
+                    <>
+                      {FILES.map((f, i) => (
+                        <motion.div
+                          key={f}
+                          data-testid={`flow-output-${i}`}
+                          initial={{ opacity: 0, x: -30 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5, delay: i * 0.2, ease: EASE }}
+                          className="flex w-full items-center justify-between rounded-lg border border-emerald-500/30 bg-emerald-500/[0.06] px-2.5 py-1.5"
+                        >
+                          <span className="flex min-w-0 items-center gap-1.5 text-[9px] text-zinc-200">
+                            <CheckCircle2 size={10} className="shrink-0 text-emerald-400" />
+                            <span className="truncate">{f}</span>
+                          </span>
+                          <Download size={10} className="shrink-0 text-emerald-400" />
+                        </motion.div>
+                      ))}
+                      <motion.button
+                        data-testid="flow-download-all-btn"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: 0.7, ease: EASE }}
+                        className="btn-glow mt-1 flex w-full items-center justify-center gap-1.5 rounded-full bg-emerald-500 py-2 text-[10px] font-bold text-[#09090B]"
+                      >
+                        <Download size={11} /> Download all signed
+                      </motion.button>
+                    </>
+                  ) : (
+                    <div className="flex h-full min-h-[90px] w-full flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-white/15 text-zinc-600">
+                      <Download size={15} />
+                      <span className="px-3 text-center text-[9px]">Signed documents appear here</span>
+                    </div>
+                  )}
+                </div>
+              </Panel>
+            </div>
           </div>
 
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
@@ -216,14 +307,9 @@ export default function SigningFlow() {
                     : "border-white/10 text-zinc-500 hover:border-white/25 hover:text-white"
                 }`}
               >
-                <FileText size={12} className={phase === i ? "text-emerald-400" : "text-zinc-600"} />
+                <span className="font-mono2 text-[9px] text-emerald-500">{`0${i + 1}`}</span>
                 {p.label}
-                {phase === i && (
-                  <motion.span
-                    layoutId="flow-dot"
-                    className="h-1.5 w-1.5 rounded-full bg-emerald-400"
-                  />
-                )}
+                {phase === i && <motion.span layoutId="flow-dot" className="h-1.5 w-1.5 rounded-full bg-emerald-400" />}
               </button>
             ))}
           </div>
