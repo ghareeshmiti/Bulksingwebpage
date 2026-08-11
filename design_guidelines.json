@@ -1,0 +1,139 @@
+{
+  "theme_and_art_direction": {
+    "theme": "dark",
+    "style": "Premium tech/security aesthetic (Ledger/1Password-tier polish)",
+    "vibe": "Award-worthy, editorial, kinetic, trustworthy, high-contrast, deep depth",
+    "description": "A high-conversion cybersecurity and digital signing landing page. Emphasizes dark mode with deep emerald/teal accents. It moves away from standard 'lock' imagery to a more transparent, data-dense, and structured aesthetic using glassmorphism and bento grids."
+  },
+  "typography": {
+    "headings": {
+      "family": "Cabinet Grotesk",
+      "weights": ["300", "500", "800"],
+      "usage": "Use for all H1, H2, and chapter numbers. Tight tracking (tracking-tight to tracking-tighter) for massive scale.",
+      "fallback": "sans-serif"
+    },
+    "body": {
+      "family": "Outfit",
+      "weights": ["300", "400", "500"],
+      "usage": "Use for paragraphs, descriptions, and feature text. Clean, geometric legibility.",
+      "fallback": "sans-serif"
+    },
+    "mono": {
+      "family": "JetBrains Mono",
+      "weights": ["400", "500"],
+      "usage": "Use for status tables, license keys, certificates, UI mockup data, and overlines.",
+      "fallback": "monospace"
+    }
+  },
+  "colors": {
+    "backgrounds": {
+      "base": "#09090B",
+      "surface_1": "#121214",
+      "surface_2": "#18181B",
+      "glass": "rgba(255, 255, 255, 0.03)"
+    },
+    "accents": {
+      "primary": "#10B981",
+      "primary_hover": "#34D399",
+      "primary_glow": "rgba(16, 185, 129, 0.2)",
+      "teal_accent": "#0D9488",
+      "danger": "#EF4444",
+      "warning": "#F59E0B"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#A1A1AA",
+      "muted": "#71717A"
+    },
+    "borders": {
+      "subtle": "rgba(255, 255, 255, 0.1)",
+      "focus": "#10B981"
+    }
+  },
+  "layouts": {
+    "general": "Generous spacing. Use Tailwind's py-24 to py-32 for section padding. Containers should use max-w-7xl.",
+    "bento_grids": "Use for Features and Security sections. Mix spans (col-span-1, col-span-2) with gap-6. Children must stretch full height.",
+    "editorial_markers": "Include large, transparent stroke numbers (01, 02, etc.) positioned absolutely in the background of each section to act as 'chapters'.",
+    "glassmorphism": "Use backdrop-blur-xl or 2xl with bg-white/5 and an inner 1px border of border-white/10 for cards, floating navs, and product mockups."
+  },
+  "motion": {
+    "scrolling": "Implement smooth scrolling using @studio-freight/lenis (MANDATORY).",
+    "hero": "Kinetic line-by-line masked reveal. Use framer-motion to reveal H1 text from bottom up with overflow-hidden wrappers.",
+    "scroll_reveals": "Staggered fade-up for features and bento boxes. Elements should translate-y-10 and opacity-0 to opacity-100 on scroll.",
+    "marquee": "Use react-fast-marquee for an editorial ribbon (e.g., 'ENTERPRISE SECURITY • PAdES COMPLIANT • LOCAL PROCESSING'). Keep it slow, elegant, and low contrast (opacity-30).",
+    "ui_interactions": "Micro-interactions on hover (scale 1.02, border glow). Sliders in the Signature Placement section must update the preview box in real-time."
+  },
+  "visual_enhancers": {
+    "textures": "Apply a subtle noise/grain overlay (fixed pointer-events-none div) across the entire application to reduce digital flatness.",
+    "glows": "Use soft radial gradients (bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]) placed absolutely behind key sections (like hero and pricing) to create an emerald light bleed.",
+    "mockups": "Instead of stock screenshots, build 'code-based mockups' using divs, borders, and JetBrains Mono to simulate the application interface directly in the DOM."
+  },
+  "components_and_sections": {
+    "1_Hero": {
+      "description": "Kinetic hero section with abstract dark green background. Masked text reveal. Includes a UI mockup showing selected PDFs and a glassmorphic certificate card floating over it (RAHUL MEHTA, Class 3, eMudhra Sub CA).",
+      "chapter": "01"
+    },
+    "2_Features": {
+      "description": "Bento grid outlining 6 core benefits: Single PDF Signing, Folder-Based Bulk Signing, Local Processing, Visible Signature Placement, Certificate Visibility, Clear Signing Status.",
+      "chapter": "02"
+    },
+    "3_Product_Interface": {
+      "description": "Visual presentation of the tool's flow: Select docs -> Configure signature -> Sign & Export.",
+      "chapter": "03"
+    },
+    "4_How_It_Works": {
+      "description": "4 numbered steps in a vertical timeline or horizontal staggered cards: Select PDFs, Download/Config DSC, Sign in Bulk, Verify & Export.",
+      "chapter": "04"
+    },
+    "5_Signature_Placement": {
+      "description": "INTERACTIVE PREVIEW. User controls horizontal/vertical position sliders and width/height inputs to move a 'Signature Box' inside a 'Document Canvas'.",
+      "chapter": "05"
+    },
+    "6_Signing_Process": {
+      "description": "Status table simulating real-time signing. Columns: File Name, Token Name, Certificate Issuer, Status, Action. Animated badges for statuses (Signed, Signing, Ready, Token Required, Failed).",
+      "chapter": "06"
+    },
+    "7_Security": {
+      "description": "Dark bento grid focusing on Local PDF Processing, USB DSC Signing, Certificate Review, Controlled Export. Use icons and metric numbers.",
+      "chapter": "07"
+    },
+    "8_Pricing": {
+      "description": "Interactive licence cost estimator. Range slider for quantity. Tiers: Basic (1 licence, ₹2,200), Pro (5-10, ₹1,800), Business (11-50, ₹1,500), Enterprise (51+, ₹1,000). Calculates annual subtotal.",
+      "chapter": "08"
+    },
+    "9_Contact_FAQ": {
+      "description": "Demo request form with glassmorphic styling (Full name, company, email, phone, plan, requirement). Accordion for 7 FAQ questions.",
+      "chapter": "09"
+    }
+  },
+  "image_urls": {
+    "hero_abstract": {
+      "url": "https://images.unsplash.com/photo-1710438399422-2fca27686bcd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2MzR8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhcmslMjBncmVlbiUyMHRlY2hub2xvZ3l8ZW58MHx8fHwxNzg2NDI4MDE1fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Abstract dark green wavy lines to be used as a hero background or section separator overlay."
+    },
+    "usb_token": {
+      "url": "https://images.unsplash.com/photo-1477949331575-2763034b5fb5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwyfHx1c2IlMjBzZWN1cml0eSUyMGtleXxlbnwwfHx8fDE3ODY0MjgwMTV8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Black USB flash drive plugged into a laptop. Perfect for the 'Download or Configure DSC' step."
+    },
+    "secure_laptop": {
+      "url": "https://images.unsplash.com/photo-1575024357670-2b5164f470c3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwyfHxzZWN1cmUlMjBkb2N1bWVudCUyMGxhcHRvcHxlbnwwfHx8fDE3ODY0MjgwMTV8MA&ixlib=rb-4.1.0&q=85",
+      "description": "MacBook Pro edge. Good for general product or security ambiance."
+    }
+  },
+  "accessibility": {
+    "contrast": "Ensure all text against the deep background passes APCA/WCAG standards. The emerald accents must be readable when used for text.",
+    "motion": "Respect prefers-reduced-motion for all framer-motion reveals.",
+    "testing": "All interactive and key informational elements MUST include a data-testid attribute."
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You MUST use HTML and Tailwind for layout structuring instead of relying solely on Shadcn's Card/Section, to allow for overlapping and asymmetry.",
+    "Do NOT use 'transition: all'. Explicitly state transition properties.",
+    "Never center-align large blocks of text; left-align to maintain readability and editorial feel.",
+    "Do not use emojis for icons. Use lucide-react.",
+    "Include data-testid attributes on all interactive elements (buttons, sliders, form fields, table rows).",
+    "Use framer-motion extensively for scroll triggers and layout animations.",
+    "Use raw HTML DOM nodes with styling to build the 'UI Mockups' instead of relying entirely on images. This looks far more premium.",
+    "Install and configure 'lenis' for smooth scrolling.",
+    "Include glassmorphism and subtle grain textures as specified."
+  ]
+}
