@@ -17,7 +17,6 @@ export default function SignatureStudio() {
       <div className="glow-emerald pointer-events-none absolute right-0 top-0 h-[500px] w-[500px]" />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader
-          chapter="05"
           overline="Visible signature"
           title="Place the Signature Where It Belongs"
           description="Preview and configure the visible signature before processing the selected PDFs. Drag the sliders and watch the stamp move in real time."

@@ -44,7 +44,7 @@ export default function Testimonials() {
       <div className="glow-emerald pointer-events-none absolute -right-40 top-24 h-[520px] w-[520px]" />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader
-          chapter="09"
+          chapter="06"
           overline="Testimonials"
           title="Word from Our Clients"
           description="Our clients' success stories reflect the impact and excellence of our technology and professional services."

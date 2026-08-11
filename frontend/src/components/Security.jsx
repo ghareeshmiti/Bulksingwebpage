@@ -30,7 +30,7 @@ export default function Security() {
       <div className="glow-emerald pointer-events-none absolute left-1/2 top-1/2 h-[640px] w-[900px] -translate-x-1/2 -translate-y-1/2" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader
-          chapter="07"
+          chapter="04"
           overline="Security"
           title="Your PDFs Stay Within the Desktop Workflow"
           description="BulkSigner processes selected PDF documents through the installed desktop application. The website is used for product information, downloads and enquiries — not for browser-based document signing."

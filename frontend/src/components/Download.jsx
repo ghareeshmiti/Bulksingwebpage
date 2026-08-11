@@ -23,7 +23,7 @@ export default function Download() {
       <div className="glow-emerald pointer-events-none absolute -left-40 bottom-0 h-[500px] w-[500px]" />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader
-          chapter="11"
+          chapter="08"
           overline="Download"
           title="Get BulkSigner for Windows"
           description="Install the desktop application, connect your mToken USB DSC and start signing individual PDFs or entire folders."

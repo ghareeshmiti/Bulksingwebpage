@@ -14,14 +14,16 @@ export const Reveal = ({ children, delay = 0, y = 40, className = "" }) => (
 
 export const ChapterHeader = ({ chapter, overline, title, description, align = "left" }) => (
   <div className={`relative mb-16 ${align === "center" ? "text-center" : ""}`}>
-    <span
-      aria-hidden
-      className={`chapter-num pointer-events-none absolute -top-16 select-none text-[9rem] font-extrabold md:text-[13rem] ${
-        align === "center" ? "left-1/2 -translate-x-1/2" : "-left-2"
-      }`}
-    >
-      {chapter}
-    </span>
+    {chapter && (
+      <span
+        aria-hidden
+        className={`chapter-num pointer-events-none absolute -top-16 select-none text-[9rem] font-extrabold md:text-[13rem] ${
+          align === "center" ? "left-1/2 -translate-x-1/2" : "-left-2"
+        }`}
+      >
+        {chapter}
+      </span>
+    )}
     <Reveal>
       <p className="font-mono2 relative mb-4 text-xs uppercase tracking-[0.35em] text-emerald-400">
         {overline}

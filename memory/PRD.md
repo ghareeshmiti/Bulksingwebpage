@@ -67,6 +67,10 @@ Design a complete HTML marketing webpage for SignuluOne BulkSigner — a Windows
 ## Iteration 10 (11 Aug 2026) — Sitemap and robots
 - Added /public/robots.txt (allow all + sitemap reference) and /public/sitemap.xml (root URL entry; sections are hash-based so they index as one page) — both verified live over HTTP
 
+## Iteration 11 (11 Aug 2026) — Section consolidation + renumbering
+- Merged sections per user request: Product Interface (+ AppTour) now lives under Overview; Signature Placement and Signing Process now live under How It Works (no longer separate sections/pages)
+- Sections reduced 13 → 10; chapters renumbered sequentially (Overview 01, Features 02, How It Works 03, Security 04, Use Cases 05, Testimonials 06, Pricing 07, Download 08, Demo 09, FAQ 10); ChapterHeader watermark made optional and removed from merged subsections; navbar trimmed back to 9 links
+
 ## Backlog
 - P0: none blocking
 - P1: Wire demo form to backend (DB + email notification), real installer download link

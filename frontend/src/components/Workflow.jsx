@@ -187,7 +187,6 @@ export default function Workflow() {
     <section data-testid="product-interface-section" className="relative bg-[#0D0D0F] py-28 lg:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader
-          chapter="03"
           overline="Product interface"
           title="Everything Needed for Desktop PDF Signing"
           description="Select documents, configure the certificate and visible signature, complete the signing process and export signed PDFs from one interface."

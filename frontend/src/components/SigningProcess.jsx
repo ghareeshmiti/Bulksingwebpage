@@ -38,7 +38,6 @@ export default function SigningProcess() {
     <section data-testid="signing-process-section" className="relative py-28 lg:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader
-          chapter="06"
           overline="Signing process"
           title="Follow Every Document Through the Signing Process"
           description="Review the token, certificate issuer and current signing status for each selected PDF."

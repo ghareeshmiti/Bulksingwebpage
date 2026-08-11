@@ -4,7 +4,6 @@ import { Toaster } from "sonner";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Marquee from "@/components/Marquee";
-import OverviewFlow from "@/components/OverviewFlow";
 import Footer from "@/components/Footer";
 import { SECTIONS } from "@/sections";
 import { registerSectionNav } from "@/lib/sectionNav";
@@ -71,12 +70,7 @@ export default function App() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
             <ActiveComponent />
-            {active === "overview" && (
-              <>
-                <OverviewFlow />
-                <Marquee />
-              </>
-            )}
+            {active === "overview" && <Marquee />}
           </motion.div>
         </AnimatePresence>
       </main>

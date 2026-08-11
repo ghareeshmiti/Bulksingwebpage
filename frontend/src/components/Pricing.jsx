@@ -54,7 +54,7 @@ export default function Pricing() {
       <div className="glow-emerald pointer-events-none absolute left-1/2 top-40 h-[600px] w-[1000px] -translate-x-1/2" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader
-          chapter="10"
+          chapter="07"
           overline="Pricing"
           title="Simple Annual Pricing by Licence Volume"
           description="Choose the licence band that matches the number of Windows desktop systems on which BulkSigner will be used."

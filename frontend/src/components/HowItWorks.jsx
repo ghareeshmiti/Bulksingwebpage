@@ -31,7 +31,7 @@ export default function HowItWorks() {
       <div className="glow-emerald pointer-events-none absolute -left-32 top-1/3 h-[520px] w-[520px]" />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader
-          chapter="04"
+          chapter="03"
           overline="How it works"
           title="From PDF Selection to Signed Document"
           description="Complete the signing workflow in four clear steps — no uploads, no manual page-by-page signing."

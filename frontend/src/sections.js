@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
-import Features from "@/components/Features";
+import OverviewFlow from "@/components/OverviewFlow";
 import Workflow from "@/components/Workflow";
+import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import SignatureStudio from "@/components/SignatureStudio";
 import SigningProcess from "@/components/SigningProcess";
@@ -12,29 +13,39 @@ import Download from "@/components/Download";
 import DemoForm from "@/components/DemoForm";
 import Faq from "@/components/Faq";
 
+const OverviewPage = () => (
+  <>
+    <Hero />
+    <OverviewFlow />
+    <Workflow />
+  </>
+);
+
+const HowItWorksPage = () => (
+  <>
+    <HowItWorks />
+    <SignatureStudio />
+    <SigningProcess />
+  </>
+);
+
 export const SECTIONS = [
-  { id: "overview", label: "Overview", chapter: "01", component: Hero, title: "SignuluOne BulkSigner — Sign PDFs Locally with Your Class 3 DSC" },
+  { id: "overview", label: "Overview", chapter: "01", component: OverviewPage, title: "SignuluOne BulkSigner — Sign PDFs Locally with Your Class 3 DSC" },
   { id: "features", label: "Features", chapter: "02", component: Features, title: "Features — SignuluOne BulkSigner" },
-  { id: "product", label: "Product Interface", chapter: "03", component: Workflow, title: "Product Interface — SignuluOne BulkSigner" },
-  { id: "how-it-works", label: "How It Works", chapter: "04", component: HowItWorks, title: "How It Works — SignuluOne BulkSigner" },
-  { id: "signature", label: "Signature Placement", chapter: "05", component: SignatureStudio, title: "Visible Signature Placement — SignuluOne BulkSigner" },
-  { id: "process", label: "Signing Process", chapter: "06", component: SigningProcess, title: "Signing Process & Status — SignuluOne BulkSigner" },
-  { id: "security", label: "Security", chapter: "07", component: Security, title: "Security — SignuluOne BulkSigner" },
-  { id: "use-cases", label: "Use Cases", chapter: "08", component: UseCases, title: "Use Cases — SignuluOne BulkSigner" },
-  { id: "testimonials", label: "Testimonials", chapter: "09", component: Testimonials, title: "Testimonials — SignuluOne BulkSigner" },
-  { id: "pricing", label: "Pricing", chapter: "10", component: Pricing, title: "Pricing — SignuluOne BulkSigner" },
-  { id: "download", label: "Download", chapter: "11", component: Download, title: "Download BulkSigner for Windows — SignuluOne" },
-  { id: "demo", label: "Request a Demo", chapter: "12", component: DemoForm, title: "Request a Demo — SignuluOne BulkSigner" },
-  { id: "faq", label: "FAQ", chapter: "13", component: Faq, title: "FAQ — SignuluOne BulkSigner" },
+  { id: "how-it-works", label: "How It Works", chapter: "03", component: HowItWorksPage, title: "How It Works — SignuluOne BulkSigner" },
+  { id: "security", label: "Security", chapter: "04", component: Security, title: "Security — SignuluOne BulkSigner" },
+  { id: "use-cases", label: "Use Cases", chapter: "05", component: UseCases, title: "Use Cases — SignuluOne BulkSigner" },
+  { id: "testimonials", label: "Testimonials", chapter: "06", component: Testimonials, title: "Testimonials — SignuluOne BulkSigner" },
+  { id: "pricing", label: "Pricing", chapter: "07", component: Pricing, title: "Pricing — SignuluOne BulkSigner" },
+  { id: "download", label: "Download", chapter: "08", component: Download, title: "Download BulkSigner for Windows — SignuluOne" },
+  { id: "demo", label: "Request a Demo", chapter: "09", component: DemoForm, title: "Request a Demo — SignuluOne BulkSigner" },
+  { id: "faq", label: "FAQ", chapter: "10", component: Faq, title: "FAQ — SignuluOne BulkSigner" },
 ];
 
 export const NAV_LINKS = [
   { id: "overview", label: "Overview" },
   { id: "features", label: "Features" },
-  { id: "product", label: "Product" },
   { id: "how-it-works", label: "How It Works" },
-  { id: "signature", label: "Signature" },
-  { id: "process", label: "Process" },
   { id: "security", label: "Security" },
   { id: "use-cases", label: "Use Cases" },
   { id: "testimonials", label: "Clients" },

@@ -22,7 +22,7 @@ export default function UseCases() {
     <section id="use-cases" data-testid="use-cases-section" className="relative py-28 lg:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader
-          chapter="08"
+          chapter="05"
           overline="Use cases"
           title="Designed for Document-Intensive Teams"
           description="Use BulkSigner wherever teams regularly apply DSC signatures to individual PDFs or document folders."
