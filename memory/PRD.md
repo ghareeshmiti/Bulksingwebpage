@@ -82,6 +82,10 @@ Design a complete HTML marketing webpage for SignuluOne BulkSigner — a Windows
 - Fixed invisible numbers on light themes: estimator values used unmapped text-zinc-100 (white-on-white) — now mapped and switched to font-heading for font consistency (Cabinet Grotesk for values, mono kept only for tiny uppercase labels)
 - Rebuilt OverviewFlow creatives as realistic miniature app windows: file explorer with checkbox rows, detailed mToken dongle with USB port + auto-detected chip, PDF page with seal-style DSC stamp, downloads window with Download-all button
 
+## Iteration 15 (11 Aug 2026) — Auto-playing select demo + theme-aware marquee
+- Select Documents panel is now an auto-playing GIF-like demo: animated cursor with click ripple presses Select PDF (1 file appears), Select Folder (4 files stagger in), Clear selection (list empties) on a 4-step loop with live captions and animated file-count; buttons now demo-only (pointer-events disabled)
+- Marquee edge fades rebuilt as theme-aware classes (no more black bands in light/blue themes); via-gradient accent overrides fixed for all themes
+
 ## Backlog
 - P0: none blocking
 - P1: Wire demo form to backend (DB + email notification), real installer download link
