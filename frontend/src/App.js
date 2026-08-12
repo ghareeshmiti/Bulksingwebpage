@@ -99,8 +99,8 @@ export default function App() {
         ) : (
           <span />
         )}
-        <span className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-emerald-400">
-          {SECTIONS[idx].chapter} · {SECTIONS[idx].label}
+        <span className="font-heading text-[11px] font-medium uppercase tracking-[0.25em] text-emerald-400">
+          {SECTIONS[idx].label}
         </span>
         {next ? (
           <button

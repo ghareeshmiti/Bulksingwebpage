@@ -138,7 +138,6 @@ export default function Navbar({ active, onNavigate, theme, onToggleTheme }) {
                       : "text-zinc-300 hover:bg-white/5 hover:text-emerald-400"
                   }`}
                 >
-                  <span className="font-mono2 text-[9px] text-emerald-500/70">{s.chapter}</span>
                   {s.label}
                 </button>
               ))}
