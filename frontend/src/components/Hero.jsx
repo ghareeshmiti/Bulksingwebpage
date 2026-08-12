@@ -51,7 +51,13 @@ export default function Hero() {
       </motion.div>
 
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 pb-16 pt-16 md:pt-24 lg:grid-cols-[1.05fr_1fr] lg:px-8">
-        <div className="flex flex-col justify-center">
+        <div className="relative flex flex-col justify-center">
+          <span
+            aria-hidden
+            className="chapter-num pointer-events-none absolute -top-16 -left-2 select-none text-[9rem] font-extrabold md:text-[13rem]"
+          >
+            01
+          </span>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
