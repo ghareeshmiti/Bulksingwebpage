@@ -276,6 +276,30 @@ input[type='range']::-moz-range-thumb {
 .theme-blue .marquee-fade-l { background: linear-gradient(to right, #F4F6FE, transparent); }
 .theme-blue .marquee-fade-r { background: linear-gradient(to left, #F4F6FE, transparent); }
 
+/* App-internal scroll container + theme-matched scrollbar */
+.app-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #10B981 transparent;
+}
+.app-scroll::-webkit-scrollbar { width: 9px; }
+.app-scroll::-webkit-scrollbar-track { background: transparent; }
+.app-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #10B981, #059669);
+  border-radius: 999px;
+}
+.theme-light .app-scroll { scrollbar-color: #F59E0B transparent; }
+.theme-light .app-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FBBF24, #D97706);
+}
+.theme-dark-amber .app-scroll { scrollbar-color: #F59E0B transparent; }
+.theme-dark-amber .app-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FBBF24, #D97706);
+}
+.theme-blue .app-scroll { scrollbar-color: #2563EB transparent; }
+.theme-blue .app-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3B82F6, #1D4ED8);
+}
+
 .hero-grid-overlay {
   opacity: 0.06;
   background-image:

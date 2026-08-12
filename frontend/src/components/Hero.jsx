@@ -44,7 +44,7 @@ export default function Hero() {
   const bgY = useTransform(scrollYProgress, [0, 1], [0, 140]);
 
   return (
-    <section id="overview" ref={ref} data-testid="hero-section" className="relative overflow-hidden pt-[72px]">
+    <section id="overview" ref={ref} data-testid="hero-section" className="relative overflow-hidden">
       <motion.div style={{ y: bgY }} className="pointer-events-none absolute inset-0">
         <div className="glow-emerald absolute -top-40 left-1/2 h-[720px] w-[1100px] -translate-x-1/2" />
         <div className="hero-grid-overlay absolute inset-0" />

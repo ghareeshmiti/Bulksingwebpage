@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Toaster } from "sonner";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -15,6 +15,7 @@ const sectionFromHash = () => {
 
 export default function App() {
   const [active, setActive] = useState(sectionFromHash);
+  const mainRef = useRef(null);
   const [theme, setTheme] = useState(() => {
     const stored = localStorage.getItem("bs-theme");
     return stored === "light" || stored === "dark-amber" ? stored : "blue";
@@ -37,7 +38,7 @@ export default function App() {
   }, [goTo]);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    mainRef.current?.scrollTo({ top: 0 });
     const s = SECTIONS.find((x) => x.id === active);
     if (s) document.title = s.title;
   }, [active]);
@@ -53,7 +54,7 @@ export default function App() {
 
   return (
     <div
-      className={`grain relative min-h-screen bg-[#09090B] text-white antialiased ${
+      className={`grain relative flex h-screen flex-col overflow-hidden bg-[#09090B] text-white antialiased ${
         theme === "light"
           ? "theme-light"
           : theme === "dark-amber"
@@ -69,7 +70,7 @@ export default function App() {
         theme={theme}
         onToggleTheme={cycleTheme}
       />
-      <main className="pb-24 md:pb-0">
+      <main ref={mainRef} className="app-scroll flex-1 overflow-y-auto pb-24 pt-[72px] md:pb-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
@@ -82,6 +83,7 @@ export default function App() {
             {active === "overview" && <Marquee />}
           </motion.div>
         </AnimatePresence>
+        <Footer onNavigate={goTo} />
       </main>
 
       <div
@@ -115,7 +117,6 @@ export default function App() {
         )}
       </div>
 
-      <Footer onNavigate={goTo} />
       <Toaster
         theme="dark"
         position="bottom-right"
