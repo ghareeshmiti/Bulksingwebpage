@@ -4,9 +4,11 @@ import { Menu, X } from "lucide-react";
 import { NAV_LINKS, SECTIONS } from "@/sections";
 
 export const Logo = ({ onNavigate }) => (
-  <button
+  <a
     data-testid="nav-logo"
-    onClick={() => onNavigate("overview")}
+    href="https://www.signuluone.com/"
+    target="_blank"
+    rel="noopener noreferrer"
     className="flex items-center gap-2.5"
   >
     <img
@@ -20,7 +22,7 @@ export const Logo = ({ onNavigate }) => (
         BulkSigner
       </span>
     </span>
-  </button>
+  </a>
 );
 
 export default function Navbar({ active, onNavigate }) {
