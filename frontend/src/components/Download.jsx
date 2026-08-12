@@ -1,5 +1,6 @@
-import { Download as DownloadIcon, MonitorDown, Check, Presentation } from "lucide-react";
-import { toast } from "sonner";
+import { useState } from "react";
+import { Download as DownloadIcon, MonitorDown, Check, Presentation, X, Phone, Mail, KeyRound } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { goToSection } from "@/lib/sectionNav";
 import { Reveal, ChapterHeader } from "@/components/shared";
 
@@ -17,7 +18,96 @@ const DETAILS = [
   ["Processing", "Local desktop processing"],
 ];
 
+function DownloadModal({ onClose }) {
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92, y: 24 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.92, y: 24 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="relative w-full max-w-md rounded-2xl border border-white/10 bg-[#0D0D0F] shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Header */}
+          <div className="flex items-center justify-between border-b border-white/10 px-6 py-5">
+            <div className="flex items-center gap-3">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-400">
+                <DownloadIcon size={17} />
+              </span>
+              <div>
+                <p className="font-heading text-sm font-bold text-white">Download Started</p>
+                <p className="text-[11px] text-zinc-500">DSCApp.zip — BulkSigner Installer</p>
+              </div>
+            </div>
+            <button onClick={onClose} className="text-zinc-500 hover:text-white transition-colors">
+              <X size={18} />
+            </button>
+          </div>
+
+          {/* Body */}
+          <div className="px-6 py-6 space-y-5">
+            <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/8 px-5 py-4">
+              <div className="flex items-start gap-3">
+                <KeyRound size={16} className="text-emerald-400 mt-0.5 shrink-0" />
+                <p className="text-sm text-zinc-300 leading-relaxed">
+                  After installing BulkSigner, you will need an <span className="text-white font-semibold">activation token</span> to get started. Please contact our team and we will provide the token for you.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500">Contact Our Team</p>
+              <a
+                href="tel:+919176446858"
+                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-zinc-200 hover:border-emerald-500/40 hover:text-white transition-colors"
+              >
+                <Phone size={15} className="text-emerald-400 shrink-0" />
+                +91 9176446858
+              </a>
+              <a
+                href="mailto:support@signulu.com"
+                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-zinc-200 hover:border-emerald-500/40 hover:text-white transition-colors"
+              >
+                <Mail size={15} className="text-emerald-400 shrink-0" />
+                support@signulu.com
+              </a>
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="border-t border-white/10 px-6 py-4 flex gap-3">
+            <a
+              href="/DSCApp.zip"
+              download="DSCApp.zip"
+              className="flex-1 flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-2.5 text-sm font-bold text-[#09090B] hover:bg-emerald-400 transition-colors"
+            >
+              <DownloadIcon size={15} />
+              Download Now
+            </a>
+            <button
+              onClick={onClose}
+              className="rounded-full border border-white/15 px-6 py-2.5 text-sm text-zinc-300 hover:border-white/30 hover:text-white transition-colors"
+            >
+              Close
+            </button>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
 export default function Download() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <section id="download" data-testid="download-section" className="relative overflow-hidden py-28 lg:py-36">
       <div className="glow-emerald pointer-events-none absolute -left-40 bottom-0 h-[500px] w-[500px]" />
@@ -47,7 +137,7 @@ export default function Download() {
             <div className="flex flex-wrap gap-4">
               <button
                 data-testid="download-installer-btn"
-                onClick={() => toast.success("BulkSigner installer download started (demo build)")}
+                onClick={() => setShowModal(true)}
                 className="group flex items-center gap-2.5 rounded-full bg-emerald-500 px-8 py-4 text-sm font-bold text-[#09090B] transition-[background-color,box-shadow] duration-300 hover:bg-emerald-400 btn-glow"
               >
                 <DownloadIcon size={17} className="transition-transform duration-300 group-hover:translate-y-0.5" />
@@ -93,5 +183,6 @@ export default function Download() {
         </div>
       </div>
     </section>
+    {showModal && <DownloadModal onClose={() => setShowModal(false)} />}
   );
 }
