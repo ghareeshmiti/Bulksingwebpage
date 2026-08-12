@@ -8,6 +8,7 @@ import {
   Settings2,
   FileCheck2,
   MousePointerClick,
+  Share2,
 } from "lucide-react";
 import { Reveal, ChapterHeader, StatusBadge, SignatureStamp } from "@/components/shared";
 import AppTour from "@/components/AppTour";
@@ -165,7 +166,12 @@ const ExportPanel = () => (
       <p className="font-mono2 text-[10px] uppercase tracking-[0.2em] text-zinc-500">
         Signing run — 4 documents
       </p>
-      <span className="font-mono2 text-[10px] text-emerald-400">3 signed · 1 ready</span>
+      <div className="flex items-center gap-3">
+        <span className="font-mono2 text-[10px] text-emerald-400">3 signed · 1 ready</span>
+        <button className="flex items-center gap-1.5 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-[11px] font-medium text-emerald-400 hover:bg-emerald-500/20 transition-colors">
+          <Share2 size={11} /> Export
+        </button>
+      </div>
     </div>
     <div className="space-y-2">
       {[
