@@ -125,7 +125,7 @@ const FEATURES = [
 
 export default function Features() {
   return (
-    <section id="features" data-testid="features-section" className="relative py-28 lg:py-36">
+    <section id="features" data-testid="features-section" className="relative py-16 lg:py-20">
       <div className="glow-emerald pointer-events-none absolute right-0 top-24 h-[480px] w-[480px]" />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader

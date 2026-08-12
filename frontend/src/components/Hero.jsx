@@ -50,7 +50,7 @@ export default function Hero() {
         <div className="hero-grid-overlay absolute inset-0" />
       </motion.div>
 
-      <div className="relative mx-auto grid max-w-7xl gap-16 px-6 pb-16 pt-16 md:pt-24 lg:grid-cols-[1.05fr_1fr] lg:px-8">
+      <div className="relative mx-auto grid max-w-7xl gap-16 px-6 pb-16 pt-8 md:pt-12 lg:grid-cols-[1.05fr_1fr] lg:px-8">
         <div className="flex flex-col justify-center">
           <motion.p
             initial={{ opacity: 0, y: 16 }}

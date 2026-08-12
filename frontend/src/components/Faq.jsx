@@ -39,7 +39,7 @@ export default function Faq() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section data-testid="faq-section" className="relative py-28 lg:py-36">
+    <section data-testid="faq-section" className="relative py-16 lg:py-20">
       <div className="mx-auto max-w-4xl px-6 lg:px-8">
         <ChapterHeader
           chapter="10"

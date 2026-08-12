@@ -13,7 +13,7 @@ export default function SignatureStudio() {
   const [h, setH] = useState(60);
 
   return (
-    <section data-testid="signature-studio-section" className="relative overflow-hidden bg-[#0D0D0F] py-28 lg:py-36">
+    <section data-testid="signature-studio-section" className="relative overflow-hidden bg-[#0D0D0F] py-16 lg:py-20">
       <div className="glow-emerald pointer-events-none absolute right-0 top-0 h-[500px] w-[500px]" />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader

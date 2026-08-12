@@ -27,7 +27,7 @@ const STEPS = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" data-testid="how-it-works-section" className="relative py-28 lg:py-36">
+    <section id="how-it-works" data-testid="how-it-works-section" className="relative py-16 lg:py-20">
       <div className="glow-emerald pointer-events-none absolute -left-32 top-1/3 h-[520px] w-[520px]" />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader

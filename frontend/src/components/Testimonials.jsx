@@ -40,7 +40,7 @@ const CLIENTS = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" data-testid="testimonials-section" className="relative overflow-hidden py-28 lg:py-36">
+    <section id="testimonials" data-testid="testimonials-section" className="relative overflow-hidden py-16 lg:py-20">
       <div className="glow-emerald pointer-events-none absolute -right-40 top-24 h-[520px] w-[520px]" />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader

@@ -50,7 +50,7 @@ export default function Pricing() {
   const subtotal = (licences || 0) * plan.price;
 
   return (
-    <section id="pricing" data-testid="pricing-section" className="relative overflow-hidden bg-[#0D0D0F] py-28 lg:py-36">
+    <section id="pricing" data-testid="pricing-section" className="relative overflow-hidden bg-[#0D0D0F] py-16 lg:py-20">
       <div className="glow-emerald pointer-events-none absolute left-1/2 top-40 h-[600px] w-[1000px] -translate-x-1/2" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader

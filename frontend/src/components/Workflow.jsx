@@ -290,7 +290,7 @@ export default function Workflow() {
   const [active, setActive] = useState("select");
 
   return (
-    <section data-testid="product-interface-section" className="relative bg-[#0D0D0F] py-28 lg:py-36">
+    <section data-testid="product-interface-section" className="relative bg-[#0D0D0F] py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader
           overline="Product interface"

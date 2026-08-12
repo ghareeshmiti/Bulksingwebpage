@@ -26,7 +26,7 @@ const COMMITMENTS = [
 
 export default function Security() {
   return (
-    <section data-testid="security-section" className="relative overflow-hidden bg-[#0D0D0F] py-28 lg:py-36">
+    <section data-testid="security-section" className="relative overflow-hidden bg-[#0D0D0F] py-16 lg:py-20">
       <div className="glow-emerald pointer-events-none absolute left-1/2 top-1/2 h-[640px] w-[900px] -translate-x-1/2 -translate-y-1/2" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader

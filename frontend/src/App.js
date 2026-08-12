@@ -70,7 +70,7 @@ export default function App() {
         theme={theme}
         onToggleTheme={cycleTheme}
       />
-      <main ref={mainRef} className="app-scroll flex-1 overflow-y-auto pb-24 pt-[72px] md:pb-0">
+      <main ref={mainRef} className="app-scroll flex-1 overflow-y-auto pb-24 md:pb-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={active}

@@ -46,7 +46,7 @@ export default function Navbar({ active, onNavigate, theme, onToggleTheme }) {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ${
+      className={`relative z-50 w-full shrink-0 border-b border-white/[0.08] bg-[#09090B] transition-[background-color,border-color] duration-500 ${
         scrolled
           ? "border-b border-white/10 bg-[#09090B]/85 backdrop-blur-xl"
           : "border-b border-white/[0.06] bg-[#09090B]/60 backdrop-blur-xl"

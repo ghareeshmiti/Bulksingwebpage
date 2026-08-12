@@ -19,7 +19,7 @@ const DETAILS = [
 
 export default function Download() {
   return (
-    <section id="download" data-testid="download-section" className="relative overflow-hidden py-28 lg:py-36">
+    <section id="download" data-testid="download-section" className="relative overflow-hidden py-16 lg:py-20">
       <div className="glow-emerald pointer-events-none absolute -left-40 bottom-0 h-[500px] w-[500px]" />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader

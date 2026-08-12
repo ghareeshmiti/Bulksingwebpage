@@ -35,7 +35,7 @@ const ALERTS = [
 
 export default function SigningProcess() {
   return (
-    <section data-testid="signing-process-section" className="relative py-28 lg:py-36">
+    <section data-testid="signing-process-section" className="relative py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader
           overline="Signing process"

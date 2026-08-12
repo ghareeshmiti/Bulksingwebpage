@@ -28,7 +28,7 @@ export default function DemoForm() {
   };
 
   return (
-    <section id="demo" data-testid="demo-section" className="relative overflow-hidden bg-[#0D0D0F] py-28 lg:py-36">
+    <section id="demo" data-testid="demo-section" className="relative overflow-hidden bg-[#0D0D0F] py-16 lg:py-20">
       <div className="glow-emerald pointer-events-none absolute -right-40 top-20 h-[500px] w-[500px]" />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ChapterHeader
