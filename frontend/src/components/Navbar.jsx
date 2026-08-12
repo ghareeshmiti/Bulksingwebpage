@@ -51,13 +51,13 @@ export default function Navbar({ active, onNavigate }) {
     >
       <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6 lg:px-8">
         <Logo onNavigate={go} />
-        <div className="hidden items-center gap-4 xl:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           {NAV_LINKS.map((l) => (
             <button
               key={l.id}
               data-testid={`nav-link-${l.id}`}
               onClick={() => go(l.id)}
-              className={`relative pb-1 text-[13px] transition-colors duration-300 ${
+              className={`relative pb-1 text-[12px] transition-colors duration-300 ${
                 active === l.id ? "text-emerald-400" : "text-zinc-400 hover:text-emerald-400"
               }`}
             >
@@ -71,7 +71,7 @@ export default function Navbar({ active, onNavigate }) {
             </button>
           ))}
         </div>
-        <div className="hidden items-center gap-3 xl:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <button
             data-testid="nav-request-demo-btn"
             onClick={() => go("demo")}
@@ -84,7 +84,7 @@ export default function Navbar({ active, onNavigate }) {
             Request a Demo
           </button>
         </div>
-        <div className="flex items-center gap-2 xl:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <button
             data-testid="nav-mobile-menu-btn"
             className="text-zinc-300"
@@ -102,7 +102,7 @@ export default function Navbar({ active, onNavigate }) {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-b border-white/10 bg-[#09090B]/95 backdrop-blur-xl xl:hidden"
+            className="overflow-hidden border-b border-white/10 bg-[#09090B]/95 backdrop-blur-xl lg:hidden"
           >
             <div className="grid max-h-[70vh] grid-cols-2 gap-1 overflow-y-auto px-6 py-4">
               {SECTIONS.map((s) => (
